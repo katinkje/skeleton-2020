@@ -1,22 +1,319 @@
-{% extends 'partials/_master.twig' %}
+{# % extends 'partials/_master.twig' % #}
 
-{% block main %}
 
-    {% if record is defined %}
+<!DOCTYPE html>
+<html lang="{{ htmllang() }}">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{# make sure we always display a proper title: The record's title if there is one, appended with the
+	sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
+	<title>
+	{%- if record.title is defined %}{{ record.title|striptags }} | {% endif -%}
+	{{ config.get('general/sitename') -}}
+	{% if record.title is not defined and config.get('general/payoff') %} | {{ config.get('general/payoff') }}{% endif -%}
+	</title>
+	<link rel="stylesheet" href="{{ asset('css/normalize.css', 'theme') }}">
+	<link rel="stylesheet" href="{{ asset('css/grid.css', 'theme') }}">
+	<link rel="stylesheet" href="{{ asset('css/item.css', 'theme') }}">
+	<link rel="stylesheet" href="{{ asset('css/flipcard.css', 'theme') }}">
+	<link rel="stylesheet" href="{{ asset('css/searchform.css', 'theme') }}">
+	<link rel="stylesheet" href="{{ asset('css/typefilters.css', 'theme') }}">
+	<link rel="stylesheet" href="{{ asset('css/delete.css', 'theme') }}">
+	<link rel="stylesheet" href="{{ asset('css/save.css', 'theme') }}">
 
-        <h1>{{ record.title }}</h1>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!--font awesome-->
 
-        {# Remove this block if you don't need it anymore. #}
-        {{ include('partials/_fresh_install.twig') }}
+</head>
 
-        {{ record.teaser }}
 
-        {{ popup(record.image, 1200, 500) }}
+<body>
 
-        {{ record.body }}
+	<div class="container"><!--container-->
+		
+		<ul class="grid" id="list-1">
+			
+			
+			<!--buttons, add buttons first-->
+			
+			<!--text as "button"-->
+			<li class="button item-desc"><p>About tekst....</p></li>
+			<li class="button item-title"><h2>Welke faciliteiten zijn er?</h2></li>
+			<!--END text-->
+			
+			<!--search button-->
+			<li class="button" id="quick-search">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/speech-search.svg');background-size: 85%;"></div>
+					<div class="flex-me theback">
+				
+					<!--input -->
+					<form autocomplete="off" id="fcsearch" method="get" action="https://www.google.com/search">
+					<input type="hidden" name="q" id="transcript" placeholder="Speak..." />
+					</form><!--END input -->
+					</form><!--END input -->
+						
+					<button id="mic" class="off" onclick="startButton();"></button>
+					<!--save the on / off status in the classlist of this button-->
+				
+					</div>
+				</div>
+				<div class="item-title"><h2>Zoeken</h2></div>
+				<div class="item-desc"><p>Om te zoeken draai je de tegel met de microfoon om en stel je een vraag.<br><br>Let op. Staat de microfoon aan? Klik erop en begin te spreken. <br><br>Tip. Gebruik korte trefwoorden</p></div>
+			</li><!--END search button-->
+			
+			<!--next item button-->
+			<li class="button" id="next-item">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/next.svg');"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/next.svg');"></div>
+				</div>
+				<div class="item-title"><h2>Volgende</h2></div>
+				<div class="item-desc"><p>Wanneer je deze knop dubbelklikt krijg je een volgend pagina te zien. <br><br>Heb je eerder een tegel geselecteerd en vergroot dan zijn het volgende faciliteiten van dat type. <br><br>Geen eerdere selectie gemaakt?<br><br>De applicatie maakt een mooie keuze uit haar inspiratie collectie voor jou.</p></div>
+			</li><!--END next item button-->
+			
+			<!--previous item button-->
+			<li class="button" id="previous-item">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/previous.svg');"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/previous.svg');"></div>
+				</div>
+				<div class="item-title"><h2>Vorige</h2></div>
+				<div class="item-desc"><p>Wanneer je deze knop dubbelklikt krijg je een eerdere set faciliteiten tegels te zien.</br></br>Geen beschikbaar?</br></br>De applicatie maakt een mooie keuze uit haar inspiratie collectie voor jou.</p></div>
+			</li><!--END previous item button-->
+			
+			<!--home button-->
+			<li class="button" id="home-button">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/home.svg');background-size: 85%;"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/home.svg');background-size: 85%;"></div>
+				</div>
+				<div class="item-title"><h2>Home</h2></div>
+				<div class="item-desc"><p>Wanneer je deze knop dubbelklikt keer je terug naar de begin situatie.</br></br>De tegels die je naar het werkblad hieronder sleept, blijven beschikbaar.</p></div>
+			</li><!--END home item button-->
 
-        {{ include('partials/_recordfooter.twig', { 'record': record }) }}
+			<!--type faciliteit button-->
+			<li class="flex-me button" id="type-filter">
+				<div class="threebythreegrid">
+					<button id="inspirations" onClick="toggleType('type-filter','inspirations', '#ce2455');"></button>
+					<button id="hardware" onClick="toggleType('type-filter','hardware', '#FAF0CA');"></button>
+					<button id="pages" class="active" onClick="toggleType('type-filter','pages', '#F4D35E');"></button>
+					<button id="field" class="active" onClick="toggleType('type-filter','field', '#70142c');"></button>
+					<button id="expertise" class="active" onClick="toggleType('type-filter','expertise', '#0D3B66');"></button>
+					<button id="location" class="active" onClick="toggleType('type-filter','location', '#5C9EAD');"></button>
+					<button id="education" class="active" onClick="toggleType('type-filter','education', '#6a785c');"></button>
+					<button id="organisation" class="active" onClick="toggleType('type-filter','organisation', '#000005');"></button>
+					<button id="hanze" class="active" onClick="toggleType('type-filter','hanze', '#ff9933');"></button>
+					</div>
+				<div class="item-title"><h2>Welke faciliteiten zijn er?</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec enim diam vulputate ut pharetra sit amet aliquam id. Sed blandit libero volutpat sed cras ornare arcu dui. Proin fermentum leo vel orci porta non pulvinar neque. Habitant morbi tristique senectus et netus et malesuada fames ac. Elementum eu facilisis sed odio morbi. Accumsan in nisl nisi scelerisque eu ultrices vitae. In nulla posuere sollicitudin aliquam.</p></div>
+			</li><!--END type faciliteit button-->
 
-    {% endif %}
 
-{% endblock main %}
+			<!--refresh button -->
+			<li class="button" id="refresh-button">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/refresh.svg');background-size: 75%;"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/refresh.svg');background-size: 75%;"></div>
+				</div>
+				<div class="item-title"><h2>Refresh</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec enim diam vulputate ut pharetra sit amet aliquam id. Sed blandit libero volutpat sed cras ornare arcu dui. Proin fermentum leo vel orci porta non pulvinar neque. Habitant morbi tristique senectus et netus et malesuada fames ac. Elementum eu facilisis sed odio morbi. Accumsan in nisl nisi scelerisque eu ultrices vitae. In nulla posuere sollicitudin aliquam.</p></div>
+			</li><!--END refresh button-->
+		
+			<!--classic search button -->
+			<li class="button" id="search-button">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/search.svg');background-size: 75%;"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/search.svg');background-size: 75%;"></div>
+				</div>
+				<div class="item-title"><h2>Zoekuitleg</h2></div>
+				<div class="item-desc"><p>Zoeken? Draai de tegel met de microfoon om en stel je vraag. <br><br>Tip. Zet de microfoon wel even aan en gebruik korte trefwoorden</p></div>
+			</li><!--END classic search button -->
+
+			<!--help button -->
+			<li class="button" id="help-button">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/help.svg');"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/help.svg');"></div>
+				</div>
+				<div class="item-title"><h2>Help</h2></div>
+				<div class="item-desc"><p>Selecteer, drag, drop, download, verwijder of begin opnieuw. Alle tegels met facliteiten laten zich over het scherm verplaatsen. Onder alle omdraaiende knoppen zit uitleg verstopt. De tegel die je selecteert en vergroot laat meer lezen over die faciliteit. <br><br>Op zoek naar nog meer inspiratie? Selecteer eens een ander (kleur)thema en ververs het scherm. Resultaten kwijt? Bewaar je tegels voortaan op het werkblad hieronder</p></div>
+			</li><!--END help button-->
+		
+			<!--delete button -->
+			<li class="button" id="delete-button">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/delete-forever.svg');background-size: 85%;"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/delete-forever.svg');background-size: 85%;"></div>
+				</div>
+				<div class="item-title"><h2>Verwijderen</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec enim diam vulputate ut pharetra sit amet aliquam id. Sed blandit libero volutpat sed cras ornare arcu dui. Proin fermentum leo vel orci porta non pulvinar neque. Habitant morbi tristique senectus et netus et malesuada fames ac. Elementum eu facilisis sed odio morbi. Accumsan in nisl nisi scelerisque eu ultrices vitae. In nulla posuere sollicitudin aliquam.</p></div>
+			</li><!--END delete button-->
+
+
+			<!--insert new items after (the last) blank tile / after an insert tile?-->
+		
+			<!--tiles-->
+			<li class="tile inspirations">
+				<div class="thecard">
+					<div class="thefront"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/pictures/hardware/3dprinter/IMG_1523.webp');"></div>
+				</div>
+				<div class="item-title"><h2>11111 HULU tokyo _ / ROPE / 2 apple</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+			</li>
+			<li class="tile inspirations">
+				<div class="thecard">
+					<div class="thefront"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/pictures/hardware/3dprinter/IMG_1527.webp');"></div>
+				</div>
+				<div class="item-title"><h2>22222 HULU tokyo _ / ROPE / 2 apple</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+			</li>
+			<li class="tile hardware">
+				<div class="thecard">
+					<div class="thefront"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/pictures/hardware/3dprinter/IMG_1526.webp');"></div>
+				</div>
+				<div class="item-title"><h2>3333 HULU tokyo _ / ROPE / 2 apple</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+			</li>
+		
+			<li class="tile field">
+				<div class="thecard">
+					<div class="thefront"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/pictures/hardware/3dprinter/IMG_1534.webp');"></div>
+				</div>
+				<div class="item-title"><h2>44444 HULU tokyo _ / ROPE / 2 apple</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+			</li>
+			<li class="tile organisation">
+				<div class="thecard">
+					<div class="thefront"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/pictures/hardware/3dprinter/IMG_1526.webp');"></div>
+				</div>
+				<div class="item-title"><h2>5555 HULU tokyo _ / ROPE / 2 apple</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+			</li>
+		
+			<li class="tile education">
+				<div class="thecard">
+					<div class="thefront"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/pictures/hardware/3dprinter/IMG_1534.webp');"></div>
+				</div>
+				<div class="item-title"><h2>HULU tokyo _ / ROPE / 2 apple</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+			</li>
+			
+		
+			<li class="tile expertise">
+				<div class="thecard">
+					<div class="thefront"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/pictures/hardware/3dprinter/IMG_1961.webp');"></div>
+				</div>
+				<div class="item-title"><h2>HULU tokyo _ / ROPE / 2 apple</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+			</li>
+				<li class="tile expertise">
+				<div class="thecard">
+					<div class="thefront"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/pictures/hardware/3dprinter/IMG_1962.webp');"></div>
+				</div>
+				<div class="item-title"><h2>HULU tokyo _ / ROPE / 2 apple</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+			</li>
+			<li class="tile field featured"><!--last item becomes the featured tile on INIT-->
+				<div class="thecard">
+					<div class="thefront"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/pictures/hardware/3dprinter/IMG_1964.webp');"></div>
+				</div>
+				<div class="item-title"><h2>HULU tokyo _ / ROPE / 2 apple</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+			</li>
+
+		</ul>
+		
+		<div style="height: 3px;background-color:#444;"></div>
+				
+		<ul class="grid" id="list-2">
+		
+			
+			<!--save button -->
+			<li class="button" id="save-button">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/save.svg');background-size: 55%;"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/save.svg');background-size: 55%;"></div>
+				</div>
+				<div class="item-title"><h2>Bewaren</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec enim diam vulputate ut pharetra sit amet aliquam id. Sed blandit libero volutpat sed cras ornare arcu dui. Proin fermentum leo vel orci porta non pulvinar neque. Habitant morbi tristique senectus et netus et malesuada fames ac. Elementum eu facilisis sed odio morbi. Accumsan in nisl nisi scelerisque eu ultrices vitae. In nulla posuere sollicitudin aliquam.</p></div>
+			</li><!--END save button-->
+		
+		
+			<li class="tile expertise">
+				<div class="thecard">
+					<div class="thefront"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/pictures/hardware/3dprinter/IMG_1961.webp');"></div>
+				</div>
+				<div class="item-title"><h2>HULU tokyo _ / ROPE / 2 apple</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+			</li>
+				<li class="tile expertise">
+				<div class="thecard">
+					<div class="thefront"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/pictures/hardware/3dprinter/IMG_1962.webp');"></div>
+				</div>
+				<div class="item-title"><h2>HULU tokyo _ / ROPE / 2 apple</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+			</li>
+			<li class="tile field">
+				<div class="thecard">
+					<div class="thefront"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/pictures/hardware/3dprinter/IMG_1964.webp');"></div>
+				</div>
+				<div class="item-title"><h2>HULU tokyo _ / ROPE / 2 apple</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+			</li>
+			
+		
+		</ul>
+	
+		
+	</div><!--END container-->
+<!--JS-->	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!--drag & drop support-->
+<script src="{{ asset('js/eventhandlers.js', 'theme') }}"></script>
+<script src="{{ asset('js/sortable.js', 'theme') }}"></script>
+<script src="{{ asset('js/list-sort-settings.js', 'theme') }}"></script>
+<script src="{{ asset('js/speech.js', 'theme') }}"></script>
+<script src="{{ asset('js/functions.js', 'theme') }}"></script>
+
+<!--end JS-->
+	<script>
+	//doc ready//
+	
+	$( document ).ready(function() {
+		// add eventhandlers to the tiles
+		//  $(".tile").on("dblclick", this,showDetails);
+		$("body").on('dblclick', '#list-1 li.tile', showDetails, toggleSize);
+		$("body").on('dblclick', '#delete-button', deleteItems);
+		$("body").on('dblclick', '#save-button', saveItems);
+		$("body").on('dblclick', '#next-item', nextItems);
+		$("body").on('dblclick', '#previous-item', previousItems);
+		$("body").on('dblclick', '#home-button', resetScreen);
+		$("body").on('dblclick', '#refresh-button', refreshScreen);
+		
+		
+		$("li").on("click", this,showDetails);
+		$("li").hover(showDetails); /*set filters in the function actual for now */
+
+		// set type filter //
+		toggleType('type-filter','inspirations', '#ce2455');
+		// debug //
+		console.log( "ready!" );
+		});
+	
+	</script>
+</body>
+</html>
