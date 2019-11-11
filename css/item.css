@@ -1,0 +1,96 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+	#list-1 > #quick-search { /* 'quick" is actually speech search */
+	grid-area: 1 / 2 / 1 / 2; 	/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+	}
+
+	#list-1 > #type-filter {
+	grid-area: 1 / 3 / 1 / 3; 	/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+	}
+
+	#list-1 > #home-button {
+	grid-area: 5 / 4 / 5 / 4; 	/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+	}
+	
+	#list-1 > #delete-button {
+	grid-area: 5 / 1 / 5 / 1; 	/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+	}
+
+	#list-2 > #save-button {
+	grid-area: 1 / 1 / 1 / 1; 	/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+	}
+
+	#list-1 > #search-button {
+	grid-area: 1 / 4 / 1 / 4; 	/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+	}
+
+	#list-1 > #next-item {
+	grid-area: 5 / 5 / 5 / 5; 	/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+	}
+
+	#list-1 > #previous-item {
+	grid-area: 2 / 1 / 2 / 1; 	/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+	}
+
+	#list-1 > #refresh-button {
+	grid-area: 3 / 2 / 3 / 2; 	/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+	}
+	#list-1 > #help-button {
+	grid-area: 2 / 5 / 2 / 5; 	/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+	}
+
+
+	li.tile.xselected {
+		border: none;
+		}
+
+
+
+
+	li.tile.featured {
+		/*border-color: var(--type-color);*/
+		
+		grid-area: 2 / 3 / 4 / 4; 	/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+
+		grid-column-end: span 2;
+		grid-row-end: span 2;
+		}
+	
+
+	div.item-title, div.item-desc {
+		display: none;
+		}
+
+
+	
+	li.item-title, li.item-desc {
+		display: flex;
+		text-transform: uppercase;
+		}
+
+	
+	li.item-title { /* inherits a generic style in grid.css */
+		grid-area: 2 / 2 / 2 / 2; 	/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+		
+		font-size: 20pt;
+		align-items: flex-end;
+
+		}
+
+	.item-title h2 {
+		text-align: left;
+		}
+
+
+	li.item-desc {
+		grid-area: 3 / 1 / 4 / 1; 	/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+		align-items: flex-start;
+		font-size: 12pt;
+		text-align: right;
+		grid-row: span 2;
+	
+		}
+	

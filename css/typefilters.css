@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+
+
+/*real button sets*/
+
+
+#inspirations, #hardware, #pages, #field, #expertise, #location, #education, #organisation, #hanze, #type-filters button:link, #type-filters button:visited {
+	background-color: #444;
+	
+	height: 50px;
+	width: 50px;
+
+	 /* invisible border (will be colored on hover/focus) */
+	border: solid 1px transparent;
+	border-radius: 50%;
+
+
+	}
+
+
+
+/*pseudo class order: :link — :visited — :hover — :active */
+
+#inspirations.active, #inspirations:hover, .inspirations { 
+	background: #ce2455; /*pink*/
+	}
+	
+
+#hardware.active, #hardware:hover, .hardware { 
+	background: #FAF0CA; /*blond*/
+	}
+
+#pages.active, #pages:hover, .pages {
+	background: #F4D35E; /*still de grain yellow */
+	}
+	
+#field.active, #field:hover, .field {
+	background: #70142c; /*purple*/
+	}
+
+#expertise.active, #expertise:hover, .expertise {
+	background: #0D3B66; /*dark midnight blue */
+	}
+
+#location.active,#location:hover, .location {
+	background: #5C9EAD; /*cadet blue*/
+}
+
+#education.active, #education:hover, .education {
+	background: #6a785c; /*mossy green**/
+	}
+
+#organisation.active, #organisation:hover, .organisation {
+	background: #000005;
+	}
+
+#hanze.active, #hanze:visited,#hanze:hover, .hanze {
+	background: #ff9933; /* to do: check / get the official color*/
+	}
+
+/*.offwhite { /* baby powder */
+/*	background: #f6efe5;
+/*	} */

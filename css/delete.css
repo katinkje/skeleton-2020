@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+
+	#delete-button {
+		background: url('/theme/skeleton-2020/images/delete-forever.svg');
+		background-position:center;
+		background-repeat: no-repeat;
+		background-size: 80%;
+
+		}

@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+
+
+	#save-button {
+		background: url('/theme/skeleton-2020/images/save.svg');
+		background-position:center;
+		background-repeat: no-repeat;
+		background-size: 50%;
+
+		}

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+/* THE CARD HOLDS THE FRONT AND BACK FACES */
+.thecard{
+	position: relative;
+
+	width: 100%;
+	height: 100%;
+	
+	transform-style: preserve-3d;
+	transition: all 0.8s ease;
+	background: transparent;
+	
+	border:none;
+	}
+
+/* THE PSEUDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
+li:not(.xselected) > .thecard:hover { /* disable hover on a selected tile */
+	transform: rotateY(180deg);
+	}
+
+li.xselected > .thecard { /* flip selected tile */
+	transform: rotateY(180deg);
+	}
+
+/* FRONT & BACK SHARED */
+.thefront, .theback {
+	position: absolute;
+
+	width: 100%;
+	height: 100%;
+	
+	backface-visibility: hidden;
+	
+	background-position:center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	}
+
+/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
+.tile .thefront {
+	/* background: yellow; */
+	background: #444;
+
+	}
+
+.tile:not(.featured) .theback {
+	filter: grayscale(100%);
+}
+
+/* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
+.theback {
+	transform: rotateY(180deg);
+	/* background: green; */
+	}
+
