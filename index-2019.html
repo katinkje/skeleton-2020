@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Interaction Tests</title>
+
+	<meta name="viewport" content="width=device-width">
+	
+  	<link rel="stylesheet" href="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/css/brand.css" /><!--color, type, icons etc.-->
+    <link rel="stylesheet" href="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/css/grid.css" /><!--grid styles-->
+	<link rel="stylesheet" href="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/css/aos.css" /><!--AOS animations. Compiled SCSS -->
+	<link rel="stylesheet" href="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/css/other.css" /><!--more animations-->
+	<link rel="stylesheet" href="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/css/flipcard.css" /><!--flipping a card (W3C)-->
+	
+	<script src="/js/settings.js"></script><!--settings (temp globals, harcoded values, quickfixes, variables etc.)-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!--drag & drop support-->
+	<script src="/js/aos.js"></script><!--AOS - Animate on scroll library](https://s32.postimg.org/ktvt59hol/aos_header.png)](http://michalsnik.github.io/aos/)-->
+	<script src="/js/item.js"></script><!-- item functions, can become an item class-->
+	<script src="/js/json.js"></script><!-- data functions-->
+	<script src="/js/eventhandlers.js"></script><!--settings (temp globals, harcoded values, quickfixes, variables etc.)-->
+</head>
+
+<style>
+
+	
+
+
+
+</style>
+	
+	
+<body>
+
+<!--li class="grid-item blended aos-init aos-animate" id="grid-item-3" data-aos="zoom-in-down">Dropzone 3</li-->
+
+<div class="container">	
+<ul id="aos-demo" class="grid-layout">
+	
+
+	
+<!--blank area, placeholder-->
+<li class="grid-item disable-sorting" data-aos="zoom-in-down"></li>
+	
+<!--clear button-->
+	
+<!--delete empty list items-->	
+<li class="grid-item button" data-aos="zoom-in-down">
+	<img alt="clear"
+		width="60%"
+		src="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/images/icons/clear.svg"
+		onDblClick="clearitem(1);"
+		onClick="clearitem(1);"
+		/></li>
+	
+	
+
+
+	
+<!--refresh page-->	
+<li class="grid-item button" data-aos="zoom-in-down">
+	<img alt="refresh" width="60%" src="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/images/icons/refresh.svg" onClick="currentpage=0;" onDblClick="currentpage = refresh();"/></li>
+	
+
+
+<!--Google Plus symmbol to browse, skip next / previous -->
+<li class="grid-item browse" data-aos="zoom-in-down">
+	<svg viewBox="0 0 120 120"><g id="SPLINE"><circle class="cls-1" cx="680.61" cy="341.2" r="16.7" transform="translate(-287.96 694.47) rotate(-89.53)" onClick="return browse(this,'up');"/></g><g id="SPLINE-2" data-name="SPLINE"><circle class="cls-2" cx="58.85" cy="60" r="16.7"/></g><g id="SPLINE-3" data-name="SPLINE"><circle class="cls-1" cx="58.85" cy="103.3" r="16.7" onClick="return browse(this,'down');"/></g><g id="SPLINE-4" data-name="SPLINE"><circle class="cls-1" cx="103.3" cy="60" r="16.7" onClick="currentpage = insertbefore();"/></g><g id="SPLINE-5" data-name="SPLINE"><circle class="cls-1" cx="16.7" cy="60" r="16.7" onClick="deleteafter()"/></g></svg>
+	</li>
+	
+<!--category filters-->
+	
+<li class="grid-item category" data-aos="zoom-in-down"  style="background-color:yellow;">
+	<img style="margin:auto;" alt="hardware" src="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/images/icons/hardware.svg"/></li>
+<li class="grid-item category" data-aos="zoom-in-down"  style="background-color:#ff6600;">
+	<img style="margin:auto;" alt="skillslab" src="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/images/icons/pages.svg"/></li>
+<li class="grid-item category" data-aos="zoom-in-down"  style="background-color:teal">
+	<img style="margin:auto;" alt="toepassing, field" src="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/images/icons/field.svg"/></li>
+
+<!--blank area, placeholder-->
+<li class="grid-item blank" data-aos="zoom-in-down"></li>
+
+<!--more category filters-->
+<li class="grid-item category" data-aos="zoom-in-down"  style="background-color:#ff007f">
+	<img style="margin:auto;" alt="organisation" src="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/images/icons/organisation.svg"/></li>
+<li class="grid-item category" data-aos="zoom-in-down"  style="background-color:#800080">
+	<img style="margin:auto;" alt="expertise" src="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/images/icons/expertise.svg"/></li>	
+<li class="grid-item category" data-aos="zoom-in-down"  style="background-color:#00ffff">
+	<img style="margin:auto;" alt="expertise" src="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/images/icons/location.svg"/></li>	
+<li class="grid-item category" data-aos="zoom-in-down"  style="background-color:#2E3192">
+	<img style="margin:auto;" alt="expertise" src="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/images/icons/course.svg"/></li>
+
+<!--flip card example-->	
+<!--li class="grid-item featured-item" data-aos="zoom-in-down">	
+	
+	<div class="flip-card-container">
+		<div class="flip-card-front location" style="background-image: url(/images/haal-4456.jpg);"></div>
+		
+		<div class="flip-card-back">
+		<h2>John Doe</h2> 
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		
+	</div>
+
+</li-->
+
+<!--drop zone example-->	
+<!--li class="grid-item span-3" data-aos="zoom-in-down">	
+	
+	<!--div class="flip-card-container">
+		<div class="flip-card-front" style="background-image: url(/images/haal-4456.jpg);"></div-->
+		
+		<!--div class="flip-card-back"-->
+		<!--div style="padding: 1rem;">
+		<h2>Dropzone</h2> 
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div-->
+		
+	<!--/div-->
+
+<!--/li-->	
+
+<!--delete after-->
+<li id="delete-after" class="grid-item button" data-aos="zoom-in-down"><img alt="delete after" width="60%" src="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/images/icons/lastpage.svg"/></li>
+	
+<!--insert-before-->
+<li id="insert-before" class="grid-item button" data-aos="zoom-in-down"><img alt="insert before" width="60%" src="file:///Macintosh HD/Users/christinabot/Desktop/WEBSITE/frontend_bak/images/icons/firstpage.svg"/></li>
+
+</ul>
+</div><!--END container-->
+	
+	<script>
+	//var item_counter = 0; //this counter increments
+		
+	////////////////////////////////////////////addItems//
+	
+	function insertContentTypeTile (elBefore) {
+		
+	var list = elBefore.parentElement;    // Get the <ul> element to insert a new node
+		
+		//console.log(elBefore.getAttribute("from_id"));
+		//console.log(elBefore.getAttribute("to_contenttype"));
+		var types = elBefore.getAttribute("to_contenttype").split(",");
+		//console.log (types.length);
+		
+		for (var i=0;i<types.length;i++) {
+		var image = types[i].split("#"); //simage is an array
+			image = image[0] + ".svg"; //now cast to string
+			image =  "background-image: url('/images/icons/" + image + "');"; //add code to display the corect icon image
+			//image = "background-image: url('/images/network.svg')";
+			//alert(image);
+		var newItem = createItem(elBefore.getAttribute("from_id"), types[i] + "(99)", types[i], "flip-left", image); //to do, add better icons or scaleable images
+			
+			
+		
+		//change the doubleclick event handler
+		newItem.removeEventListener('dblclick',dblclick_itemtile)
+		newItem.addEventListener('dblclick',dblclick_typetile); //dblcontenttypetile	
+			
+		//insert the new item
+		list.insertBefore(newItem, elBefore);
+	
+			
+		}
+
+
+	return false;
+	}
+			
+					
+	
+		
+	//een beetje jQuery voor de drag & drop, sortable try-outs
+	$(function() {
+	//step 1. document has loaded.
+		
+		$( "#aos-demo" ).sortable(
+			{
+			//argumentlist
+			revert: false,
+			placeholder: "grid-item",
+			cancel: ".disable-sorting"
+		
+			});
+		
+	
+		
+		$( "#aos-demo" ).disableSelection(); //depreciated?
+	
+	//step 2. get data
+		var url = "/php/getitems.php?type=" + activetype + "&limit=0," + itemsperpage; //Set from_id to 0 to retrieve all; todo: enable paging
+		//alert(url);
+		getData (url, addItems); //getData (api/url, callback) (todo: add paging or other parameters to the API)
+	
+
+	//step 3. enable animatie en positionering (on scroll)
+		
+		AOS.init({
+			easing: 'ease-in-out-sine'
+		});
+		
+		
+		
+		
+		
+		
+	
+	//console.log( "ready!" );
+	} );
+		
+
+		
+	</script>
+	
+
+	
+	
+	
+
+	
+	<!--360 graden support -->
+	<!--script src="vrlibs/three.min.js"></script>
+	<script src="vrlibs/OrbitControls.js"></script>	
+	<script src="vrlibs/Detector.js"></script>		
+	<script src="vrlibs/Photosphere.js"></script-->
+	
+</body>
+</html>

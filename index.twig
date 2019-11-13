@@ -1,6 +1,5 @@
 {# % extends 'partials/_master.twig' % #}
 
-
 <!DOCTYPE html>
 <html lang="{{ htmllang() }}">
 <head>
@@ -283,37 +282,65 @@
 <!--JS-->	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!--drag & drop support-->
+<script src="{{ asset('js/settings.js', 'theme') }}"></script>
 <script src="{{ asset('js/eventhandlers.js', 'theme') }}"></script>
 <script src="{{ asset('js/sortable.js', 'theme') }}"></script>
 <script src="{{ asset('js/list-sort-settings.js', 'theme') }}"></script>
 <script src="{{ asset('js/speech.js', 'theme') }}"></script>
 <script src="{{ asset('js/functions.js', 'theme') }}"></script>
+<script src="{{ asset('js/json.js', 'theme') }}"></script>
+<script src="{{ asset('js/item.js', 'theme') }}"></script>
 
 <!--end JS-->
 	<script>
-	//doc ready//
+	
 	
 	$( document ).ready(function() {
-		// add eventhandlers to the tiles
-		//  $(".tile").on("dblclick", this,showDetails);
-		$("body").on('dblclick', '#list-1 li.tile', showDetails, toggleSize);
-		$("body").on('dblclick', '#delete-button', deleteItems);
+	
+	// initialise screen /////////////////////////////
+
+	
+
+		
+		$("body").on('dblclick', '#delete-button', deleteItems); // add eventhandlers to the buttons
 		$("body").on('dblclick', '#save-button', saveItems);
 		$("body").on('dblclick', '#next-item', nextItems);
 		$("body").on('dblclick', '#previous-item', previousItems);
 		$("body").on('dblclick', '#home-button', resetScreen);
 		$("body").on('dblclick', '#refresh-button', refreshScreen);
+	
 		
-		
-		$("li").on("click", this,showDetails);
-		$("li").hover(showDetails); /*set filters in the function actual for now */
+		toggleType('type-filter','inspirations', '#ce2455'); // set type filter //
 
-		// set type filter //
-		toggleType('type-filter','inspirations', '#ce2455');
-		// debug //
-		console.log( "ready!" );
+
+		//step 2. get data
+		
+		var url = basepath + "php/getitems.php?type=" + activetype + "&limit=0," + itemsperpage; //Set from_id to 0 to retrieve all; todo: enable paging
+		
+		alert(url);
+		getData (url, addItems); //getData (api/url, callback) (todo: add paging or other parameters to the API)
+		
+		//move to the add item function//
+		//$("body").on('dblclick', '#list-1 li.tile', showDetails, toggleSize); // add eventhandlers to the tiles
+		//$("li").on("click", this,showDetails);
+		//$("li").hover(showDetails); /*set filters in the function actual for now */
+
+
+		//step 3. enable animatie en positionering (on scroll, insert and delete)
+		//AOS.init({
+		//	easing: 'ease-in-out-sine'
+		//});
+		
+
+		console.log( "Document ready! No errors on load." );
 		});
+		
+		
+		
+		
 	
 	</script>
+	
+
 </body>
 </html>
