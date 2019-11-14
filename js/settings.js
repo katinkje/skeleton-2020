@@ -8,7 +8,7 @@
 	var insertbeforeitem ="insert-before";
 	var deleteafteritem="delete-after";
 	var currentpage = 0;
-	var itemsperpage = 5;
+	var itemsperpage = 8;
 	var activetype = "hardware";
 
 	

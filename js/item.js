@@ -1,7 +1,6 @@
 // JavaScript Document
 
 
-
 function addItems (jsonrecordset) {
 var list = document.getElementById("list-1"); //oops, hardcoded value. refactor.
 
@@ -12,6 +11,11 @@ if (list) {
 		list.append(newitem); // append / prepend / insertBefore / insertAfter
 		//alert("item: " + newitem.id + " created");	
 		}
+	
+	//alert(list.lastChild.id);
+	list.lastChild.classList.add('featured'); //sort datepunblished descending zodat het meeste recente item, het featured item is.
+	list.lastChild.classList.add('xselected'); 
+	
 }
 return false;
 }
