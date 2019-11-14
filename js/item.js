@@ -3,31 +3,24 @@
 
 
 function addItems (jsonrecordset) {
+var list = document.getElementById("list-1"); //oops, hardcoded value. refactor.
 
-for(var i=0; i < jsonrecordset.length;i++) {
+if (list) {	
+	
+	for(var i=0; i < jsonrecordset.length;i++) {
 	var newitem = createItem(jsonrecordset[i]);
-
+		list.append(newitem); // append / prepend / insertBefore / insertAfter
+		//alert("item: " + newitem.id + " created");	
+		}
 }
 return false;
 }
 
 
 function createItem(itemdata) {
-	
-/*	
-<li class="tile field">
-<div class="thecard">
-<div class="thefront"></div>
-<div class="theback" style="background-image: url('/theme/skeleton-2020/images/pictures/hardware/3dprinter/IMG_1964.webp');"></div>
-</div>
-<div class="item-title"><h2>HULU tokyo _ / ROPE / 2 apple</h2></div>
-<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
-</li>
-*/
-	
-	var item_title = "";
-	var item_desc = "";
-	var item_image = getImage(); //haal een random demo image op.
+
+	var scrollanimation = getAnimation(); //haal een random animatie style op voor scroll-effect, toevoegen en verwijderen.
+	var fallback_image = getImage(); //haal een random demo image op.
 
 
 	
@@ -35,53 +28,49 @@ function createItem(itemdata) {
 		item.setAttribute('id', itemdata.item_id); //pass straight from recordset
 		item.classList.add('tile');
 		//item.classList.add(jsonrecord.contenttype);
-		//item.setAttribute('data-aos', scrollanimation);
-		//item.setAttribute('data-aos-duration', 500);
+		item.setAttribute('data-aos', scrollanimation);
+		item.setAttribute('data-aos-duration', 500);
 	
-		item.addEventListener('dblclick', showDetails, toggleSize);
+		item.addEventListener('dblclick', toggleSize);
 		item.addEventListener('click', showDetails);
 		item.addEventListener('hover', showDetails);
+		//item.addEventListener('dblclick', getrelatedtypes(itemdata.item_id)); //double click an item tile to insert or reveal associated content types
 
+
+	var flipcard = document.createElement('div');
+		flipcard.classList.add('thecard');
+		flipcard = item.appendChild(flipcard); //add the flipcard container
 	
-alert("item: " + item.id + " created");	
+	var front = document.createElement('div');
+		front.classList.add('thefront');
+	
+	var back = document.createElement('div');
+		back.classList.add('theback');
+		back.setAttribute('style', validateimage(itemdata.item_image, fallback_image));
+		
+		flipcard.appendChild(front)
+		flipcard.appendChild(back)
+	
+		item.appendChild( flipcard );
+		
+	var title = document.createElement('div');
+		title.classList.add('item-title');
+		title.innerHTML = "<h2>" + itemdata.item_title + "</h2>";
+		
+	
+		item.appendChild( title );
+			
+	var desc = document.createElement('div');
+		desc.classList.add('item-desc');
+		desc.innerHTML = itemdata.item_desc;
+		
+	
+		item.appendChild( desc );
+	
+
 return item;
 }
 
-
-
-
-
-//function createItem(itemdata, scrollanimation, bgimage) {
-	
-//	var item =	document.createElement('li');
-	
-
-	
-//	item.addEventListener('dblclick', getrelatedtypes(itemdata.item_id)); //double click an item tile to insert or reveal associated content types
-
-//	var flipcard = document.createElement('div');
-//		flipcard.classList.add('flip-card-container');
-//		flipcard = item.appendChild(flipcard); //add the flipcard container
-//	
-	
-//	var front = document.createElement('div');
-//		front.classList.add('flip-card-front');
-//		front.setAttribute('style', validateimage(itemdata.item_image, bgimage));
-//		flipcard.appendChild(front)
-	
-//	var back = document.createElement('div');
-//		back.classList.add('flip-card-back');
-	
-	
-//		flipcard.appendChild(back)
-		
-//		var text = document.createTextNode(itemdata.item_title);
-//		back.appendChild( text );
-	
-	
-
-//	return item;
-//	}
 
 
 
@@ -128,20 +117,25 @@ return item;
 
 
 function getImage() {
-var index =Math.floor(Math.random() * itemImages.length);
-var bgImage = "background-image: url('" + basepath + itemImages[index] + "');";
-		
+	var index =Math.floor(Math.random() * itemImages.length);
+	var bgImage = "background-image: url('" + basepath + itemImages[index] + "');";
+
 return bgImage;
 }
 
 
+function getAnimation() {
+	var index =Math.floor(Math.random() * itemAnimations.length);
+	var animation = itemAnimations[index];
+
+return animation;
+}
 
 
-//function validateimage(itemimage, fallbackimage) {
-
+function validateimage(itemimage, fallbackimage) {
 	
 //	if (!itemimage) {
-//		var bgimage = fallbackimage;
+		//var bgimage = fallbackimage;
 //	} else {
 //		var s = JSON.parse(itemimage).file;
 //		var pos = s.lastIndexOf(".");
@@ -149,14 +143,12 @@ return bgImage;
 //			s = s + ".webp";
 //			//alert(s);
 //		var bgimage = "background-image: url('/images/" + s + "');";
-		
-		
 		//alert(bgimage);
-
 //	}
 		
 //return bgimage;
-//}
+return fallbackimage;
+}
 
 
 
