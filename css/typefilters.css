@@ -27,39 +27,48 @@
 
 #inspirations.active, #inspirations:hover, .inspirations { 
 	background: #ce2455; /*pink*/
+	border: 1px solid #ce2455;
 	}
 	
 
 #hardware.active, #hardware:hover, .hardware { 
 	background: #FAF0CA; /*blond*/
+	border: 1px solid #FAF0CA;
 	}
 
 #pages.active, #pages:hover, .pages {
 	background: #F4D35E; /*still de grain yellow */
+	border: 1px solid #F4D35E;
 	}
 	
 #field.active, #field:hover, .field {
 	background: #70142c; /*purple*/
+	border: 1px solid #70142c;
 	}
 
 #expertise.active, #expertise:hover, .expertise {
 	background: #0D3B66; /*dark midnight blue */
+	border: 1px solid #0D3B66;
 	}
 
 #location.active,#location:hover, .location {
 	background: #5C9EAD; /*cadet blue*/
+	border: 1px solid #5C9EAD;
 }
 
 #education.active, #education:hover, .education {
 	background: #6a785c; /*mossy green**/
+	border: 1px solid #6a785c;
 	}
 
 #organisation.active, #organisation:hover, .organisation {
 	background: #000005;
+	border: 1px solid  #000005;
 	}
 
 #hanze.active, #hanze:visited,#hanze:hover, .hanze {
 	background: #ff9933; /* to do: check / get the official color*/
+	border: 1px solid  #ff9933;
 	}
 
 /*.offwhite { /* baby powder */

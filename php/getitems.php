@@ -18,16 +18,28 @@
 
 	//echo "Connected successfully"; 
 
-	$sql = $sql . "SELECT DISTINCT BI.id as item_id, BI.datechanged "; //, ";
-	$sql = $sql . "FROM bolt_" . $param3 . " BI ";
-	$sql = $sql . "INNER JOIN bolt_relations BR ";
-	$sql = $sql . "ON BI.id = BR.from_id ";
-	$sql = $sql . "WHERE BI.status = 'published' ";
+	//$sql = $sql . "SELECT DISTINCT BI.id as item_id, BI.datechanged "; //, ";
+	//$sql = $sql . "FROM bolt_" . $param3 . " BI ";
+	//$sql = $sql . "INNER JOIN bolt_relations BR ";
+	//$sql = $sql . "ON BI.id = BR.from_id ";
+	//$sql = $sql . "WHERE BI.status = 'published' ";
 	//$sql = $sql . "AND BI.image != null ";
-	$sql = $sql . ($param1 > 0 ? "AND BI.id = $param1 " : ""); //shorthand if .. then .. else...
-	$sql = $sql . "ORDER BY BI.datechanged DESC ";
-	$sql = $sql . "LIMIT " . $param2;
+	//$sql = $sql . ($param1 > 0 ? "AND BI.id = $param1 " : ""); //shorthand if .. then .. else...
+	//$sql = $sql . "ORDER BY BI.datechanged DESC ";
+	//$sql = $sql . "LIMIT " . $param2;
 
+	$sql = $sql . "SELECT DISTINCT ";
+	$sql = $sql . "F.id as item_id, ";
+	$sql = $sql . "F.title as item_title, ";
+	$sql = $sql . " F.teaser as item_desc, ";
+	$sql = $sql . "F.image as item_image, ";
+	$sql = $sql . "F.video as item_video, ";
+	$sql = $sql . "'inspirations' as content_type, ";
+	$sql = $sql . "F.datechanged as item_updated ";
+	$sql = $sql . "FROM bolt_inspirations AS F ";
+	$sql = $sql . "WHERE F.status = 'published' ";
+	$sql = $sql . "ORDER BY F.datechanged DESC ";
+	$sql = $sql . "LIMIT " . $param2;
 
 
 	echo($sql);

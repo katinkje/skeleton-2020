@@ -225,18 +225,17 @@
 
 		//step 2. get data
 		
-		var url = basepath + "php/getitems.php?type=" + activetype + "&limit=0," + itemsperpage; //Set from_id to 0 to retrieve all; todo: enable paging
+		var url = basepath + "php/basicgetitem.php?type=" + activetype + "&limit=0," + itemsperpage; //Set from_id to 0 to retrieve all; todo: enable paging
 		
 		//alert(url);
 		getData (url, addItems); //getData (api/url, callback) (todo: add paging or other parameters to the API)
 		
-		//move to the add item function//
-		//$("body").on('dblclick', '#list-1 li.tile', showDetails, toggleSize); // add eventhandlers to the tiles
+		
+		//step 3. add events to buttons
 		$(".button").on("click", this,showDetails);
-		//$(".button").hover(showDetails); /*set filters in the function actual for now */
 
 
-		//step 3. enable animatie en positionering (on scroll, insert and delete)
+		//step 4. enable animatie en positionering (on scroll, insert and delete)
 		AOS.init({
 			easing: 'ease-in-out-sine'
 		});

@@ -13,9 +13,7 @@ var btns = containerElement.getElementsByTagName("button");	// Get all buttons i
 	document.getElementById(bylabel).classList.add("active");
 	document.documentElement.style.setProperty('--type-color', bycolorcode);
 	document.documentElement.style.setProperty('--type-label', bylabel);
-	//var typeimage = "url('//theme/skeleton-2020/images/" + bylabel + ".svg')";
-	//document.documentElement.style.setProperty('--type-image', typeimage);
-	//console.log("to do, swap image for this one: " + bylabel);
+	activetype = bylabel; //set global variable
 return false;
 }
 

@@ -9,7 +9,7 @@
 	var deleteafteritem="delete-after";
 	var currentpage = 0;
 	var itemsperpage = 12;
-	var activetype = "hardware";
+	var activetype = "inspirations";
 
 	
 

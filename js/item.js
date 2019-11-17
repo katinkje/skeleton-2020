@@ -13,8 +13,8 @@ if (list) {
 		}
 	
 	//alert(list.lastChild.id);
-	list.lastChild.classList.add('featured'); //sort datepunblished descending zodat het meeste recente item, het featured item is.
-	list.lastChild.classList.add('xselected'); 
+	//list.lastChild.classList.add('featured'); //sort datepunblished descending zodat het meeste recente item, het featured item is.
+	//list.lastChild.classList.add('xselected'); 
 	
 }
 return false;
@@ -31,10 +31,9 @@ function createItem(itemdata) {
 	var item =	document.createElement('li');
 		item.setAttribute('id', itemdata.item_id); //pass straight from recordset
 		item.classList.add('tile');
-		item.classList.add(itemdata.contenttype);
+		item.classList.add(itemdata.content_type);
 		item.setAttribute('data-aos', scrollanimation);
-		item.setAttribute('data-aos-duration', 500);
-	
+		item.setAttribute('data-aos-duration', 500);	
 		item.addEventListener('dblclick', toggleSize);
 		item.addEventListener('click', showDetails);
 		//item.addEventListener('hover', showDetails);

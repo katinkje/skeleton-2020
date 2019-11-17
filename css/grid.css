@@ -82,11 +82,11 @@ h2, h3 {
 		}
 
 .grid > li.button {
-	border:3px solid #333; /* geeft bij een tile een raar randje met de inner div's van de flipcard */
+	/* border:3px solid #333; /* geeft bij een tile een raar randje met de inner div's van de flipcard */
 	}
 
 .grid > li.xselected {
-	border:3px solid var(--type-color);
+	/* border:3px solid var(--type-color); */
 	}
 
 

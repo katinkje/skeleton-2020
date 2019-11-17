@@ -10,8 +10,14 @@ alert("reset screen (home)");
 
 function refreshScreen (e) {
 var el = e.currentTarget; //element with the handler attached
-	
-alert("refresh screen");
+
+		//repeat. get data
+		
+		var url = basepath + "php/basicgetitem.php?type=" + activetype + "&limit=0," + itemsperpage; //Set from_id to 0 to retrieve all; todo: enable paging
+		//alert(url);
+		getData (url, addItems); //getData (api/url, callback) (todo: add paging or other parameters to the API)
+		
+//alert("refresh screen: " + activetype);
 }
 
 

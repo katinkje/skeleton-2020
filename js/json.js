@@ -1,6 +1,7 @@
 // JavaScript Document
 
 function getData (surl, callback) {
+	
 		$.ajax({
 			url: surl,
 			method: 'GET',
