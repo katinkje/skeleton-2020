@@ -1,0 +1,255 @@
+
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Expressa vero in iis aetatibus, quae iam confirmatae sunt. | A sample site</title>
+	<link rel="stylesheet" href="/theme/skeleton-2020/css/normalize.css?cf316ffab9">
+	<link rel="stylesheet" href="/theme/skeleton-2020/css/grid.css?dcc033b226">
+	<link rel="stylesheet" href="/theme/skeleton-2020/css/item.css?0c0c3b7d6e">
+	<link rel="stylesheet" href="/theme/skeleton-2020/css/flipcard.css?dc6780093c">
+	<link rel="stylesheet" href="/theme/skeleton-2020/css/searchform.css?3382cbfe54">
+	<link rel="stylesheet" href="/theme/skeleton-2020/css/typefilters.css?cf32c50253">
+	<link rel="stylesheet" href="/theme/skeleton-2020/css/delete.css?827059f03c">
+	<link rel="stylesheet" href="/theme/skeleton-2020/css/save.css?c26315a069">
+	<link rel="stylesheet" href="/theme/skeleton-2020/css/aos.css?9f54deac9d">
+
+	<meta name="generator" content="Bolt">
+	<link rel="canonical" href="http://localhost:8888/">
+</head>
+
+
+<body>
+
+	<div class="container"><!--container-->
+		
+		<ul class="grid" id="list-1">
+			
+			
+			<!--search button-->
+			<li class="button" id="quick-search">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/speech-search.svg');background-size: 85%;"></div>
+					<div class="flex-me theback">
+				
+					<!--input -->
+					<form autocomplete="off" id="fcsearch" method="get" action="https://www.google.com/search">
+					<input type="hidden" name="q" id="transcript" placeholder="Speak..." />
+					</form><!--END input -->
+					</form><!--END input -->
+						
+					<button id="mic" class="off" onclick="startButton();"></button>
+					<!--save the on / off status in the classlist of this button-->
+				
+					</div>
+				</div>
+				<div class="item-title"><h2>Zoeken</h2></div>
+				<div class="item-desc"><p>Om te zoeken draai je de tegel met de microfoon om en stel je een vraag.<br><br>Let op. Staat de microfoon aan? Klik erop en begin te spreken. <br><br>Tip. Gebruik korte trefwoorden</p></div>
+			</li><!--END search button-->
+
+			
+				
+			<!--text as "button"-->
+			
+			<li class="button item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec enim diam vulputate ut pharetra sit amet aliquam id. Sed blandit libero volutpat sed cras ornare arcu dui. Proin fermentum leo vel orci porta non pulvinar neque. Habitant morbi tristique senectus et netus et malesuada fames ac. Elementum eu facilisis sed odio morbi. Accumsan in nisl nisi scelerisque eu ultrices vitae. In nulla posuere sollicitudin aliquam.</p></li>
+			<li class="button item-title"><h2>Welke faciliteiten zijn er?</h2></li>
+			
+			<!--END text-->
+			
+			
+			<!--home button-->
+			<li class="button" id="home-button">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/home.svg');background-size: 85%;"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/home.svg');background-size: 85%;"></div>
+				</div>
+				<div class="item-title"><h2>Home</h2></div>
+				<div class="item-desc"><p>Wanneer je deze knop dubbelklikt keer je terug naar de begin situatie.</br></br>De tegels die je naar het werkblad hieronder sleept, blijven beschikbaar.</p></div>
+			</li><!--END home item button-->
+			
+			
+			<!--help button -->
+			<li class="button" id="help-button">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/help.svg');"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/help.svg');"></div>
+				</div>
+				<div class="item-title"><h2>Help</h2></div>
+				<div class="item-desc"><p>Selecteer, drag, drop, download, verwijder of begin opnieuw. Alle tegels met facliteiten laten zich over het scherm verplaatsen. Onder alle omdraaiende knoppen zit uitleg verstopt. De tegel die je selecteert en vergroot laat meer lezen over die faciliteit. <br><br>Op zoek naar nog meer inspiratie? Selecteer eens een ander (kleur)thema en ververs het scherm. Resultaten kwijt? Bewaar je tegels voortaan op het werkblad hieronder</p></div>
+			</li><!--END help button-->
+			
+			<!--next item button-->
+			<li class="button" id="next-item">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/next.svg');"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/next.svg');"></div>
+				</div>
+				<div class="item-title"><h2>Volgende</h2></div>
+				<div class="item-desc"><p>Wanneer je deze knop dubbelklikt krijg je een volgend pagina te zien. <br><br>Heb je eerder een tegel geselecteerd en vergroot dan zijn het volgende faciliteiten van dat type. <br><br>Geen eerdere selectie gemaakt?<br><br>De applicatie maakt een mooie keuze uit haar inspiratie collectie voor jou.</p></div>
+			</li><!--END next item button-->
+			
+			<!--previous item button-->
+			<li class="button" id="previous-item">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/previous.svg');"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/previous.svg');"></div>
+				</div>
+				<div class="item-title"><h2>Vorige</h2></div>
+				<div class="item-desc"><p>Wanneer je deze knop dubbelklikt krijg je een eerdere set faciliteiten tegels te zien.</br></br>Geen beschikbaar?</br></br>De applicatie maakt een mooie keuze uit haar inspiratie collectie voor jou.</p></div>
+			</li><!--END previous item button-->
+			
+		
+
+			<!--type faciliteit button-->
+			<li class="flex-me button" id="type-filter">
+				<div class="threebythreegrid">
+					<button id="inspirations" onClick="toggleType('type-filter','inspirations', '#ce2455');"></button>
+					<button id="hardware" onClick="toggleType('type-filter','hardware', '#FAF0CA');"></button>
+					<button id="pages" class="active" onClick="toggleType('type-filter','pages', '#F4D35E');"></button>
+					<button id="field" class="active" onClick="toggleType('type-filter','field', '#70142c');"></button>
+					<button id="expertise" class="active" onClick="toggleType('type-filter','expertise', '#0D3B66');"></button>
+					<button id="location" class="active" onClick="toggleType('type-filter','location', '#5C9EAD');"></button>
+					<button id="education" class="active" onClick="toggleType('type-filter','education', '#6a785c');"></button>
+					<button id="organisation" class="active" onClick="toggleType('type-filter','organisation', '#000005');"></button>
+					<button id="hanze" class="active" onClick="toggleType('type-filter','hanze', '#ff9933');"></button>
+					</div>
+				<div class="item-title"><h2>Welke faciliteiten zijn er?</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec enim diam vulputate ut pharetra sit amet aliquam id. Sed blandit libero volutpat sed cras ornare arcu dui. Proin fermentum leo vel orci porta non pulvinar neque. Habitant morbi tristique senectus et netus et malesuada fames ac. Elementum eu facilisis sed odio morbi. Accumsan in nisl nisi scelerisque eu ultrices vitae. In nulla posuere sollicitudin aliquam.</p></div>
+			</li><!--END type faciliteit button-->
+
+
+			<!--refresh button -->
+			<li class="button" id="refresh-button">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/refresh.svg');background-size: 75%;"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/refresh.svg');background-size: 75%;"></div>
+				</div>
+				<div class="item-title"><h2>Refresh</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec enim diam vulputate ut pharetra sit amet aliquam id. Sed blandit libero volutpat sed cras ornare arcu dui. Proin fermentum leo vel orci porta non pulvinar neque. Habitant morbi tristique senectus et netus et malesuada fames ac. Elementum eu facilisis sed odio morbi. Accumsan in nisl nisi scelerisque eu ultrices vitae. In nulla posuere sollicitudin aliquam.</p></div>
+			</li><!--END refresh button-->
+		
+			<!--classic search button -->
+			<li class="button" id="search-button">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/search.svg');background-size: 75%;"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/search.svg');background-size: 75%;"></div>
+				</div>
+				<div class="item-title"><h2>Zoekuitleg</h2></div>
+				<div class="item-desc"><p>Zoeken? Draai de tegel met de microfoon om en stel je vraag. <br><br>Tip. Zet de microfoon wel even aan en gebruik korte trefwoorden</p></div>
+			</li><!--END classic search button -->
+
+			<!--insert new items after (the last) blank tile / after an insert tile?-->
+		
+			<!--tiles-->
+		
+		</ul>
+		
+		<div style="height: 3px;background-color:#444;"></div>
+				
+		<ul class="grid" id="list-2">
+		
+			
+			<!--save button -->
+			<li class="button" id="save-button">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/save.svg');background-size: 55%;"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/save.svg');background-size: 55%;"></div>
+				</div>
+				<div class="item-title"><h2>Bewaren</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec enim diam vulputate ut pharetra sit amet aliquam id. Sed blandit libero volutpat sed cras ornare arcu dui. Proin fermentum leo vel orci porta non pulvinar neque. Habitant morbi tristique senectus et netus et malesuada fames ac. Elementum eu facilisis sed odio morbi. Accumsan in nisl nisi scelerisque eu ultrices vitae. In nulla posuere sollicitudin aliquam.</p></div>
+			</li><!--END save button-->
+			
+			<!--empty tiles facilitate dragging-->
+			<li class="blank"></li>
+			<li class="blank"></li>
+			<li class="blank"></li>
+			<!--END empty tiles facilitate dragging-->
+			
+			<!--delete button -->
+			<li class="button" id="delete-button">
+				<div class="thecard">
+					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/delete-forever.svg');background-size: 85%;"></div>
+					<div class="theback" style="background-image: url('/theme/skeleton-2020/images/delete-forever.svg');background-size: 85%;"></div>
+				</div>
+				<div class="item-title"><h2>Verwijderen</h2></div>
+				<div class="item-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec enim diam vulputate ut pharetra sit amet aliquam id. Sed blandit libero volutpat sed cras ornare arcu dui. Proin fermentum leo vel orci porta non pulvinar neque. Habitant morbi tristique senectus et netus et malesuada fames ac. Elementum eu facilisis sed odio morbi. Accumsan in nisl nisi scelerisque eu ultrices vitae. In nulla posuere sollicitudin aliquam.</p></div>
+			</li><!--END delete button-->
+		
+			<!--tiles to save or delete are appended by the user to list-2 -->
+		
+		
+		</ul>
+	
+		
+	</div><!--END container-->
+<!--JS-->	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!--drag & drop support-->
+<script src="/theme/skeleton-2020/js/settings.js?73deca73cc"></script>
+<script src="/theme/skeleton-2020/js/eventhandlers.js?327bcca0fb"></script>
+<script src="/theme/skeleton-2020/js/sortable.js?03e2c01f09"></script>
+<script src="/theme/skeleton-2020/js/list-sort-settings.js?e2118e6ba1"></script>
+<script src="/theme/skeleton-2020/js/speech.js?4c13acae2b"></script>
+<script src="/theme/skeleton-2020/js/functions.js?ec512673db"></script>
+<script src="/theme/skeleton-2020/js/json.js?15b1465bb1"></script>
+<script src="/theme/skeleton-2020/js/item.js?b187124078"></script>
+<script src="/theme/skeleton-2020/js/aos.js?84c3cbc8ff"></script>
+
+<!--end JS-->
+	<script>
+	
+	
+	$( document ).ready(function() {
+	
+	// initialise screen /////////////////////////////
+
+	
+
+		
+		$("body").on('dblclick', '#delete-button', deleteItems); // add eventhandlers to the buttons
+		$("body").on('dblclick', '#save-button', saveItems);
+		$("body").on('dblclick', '#next-item', nextItems);
+		$("body").on('dblclick', '#previous-item', previousItems);
+		$("body").on('dblclick', '#home-button', resetScreen);
+		$("body").on('dblclick', '#refresh-button', refreshScreen);
+	
+		
+		toggleType('type-filter','inspirations', '#ce2455'); // set type filter //
+
+
+		//step 2. get data
+		
+		var url = basepath + "php/getitems.php?type=" + activetype + "&limit=0," + itemsperpage; //Set from_id to 0 to retrieve all; todo: enable paging
+		
+		//alert(url);
+		getData (url, addItems); //getData (api/url, callback) (todo: add paging or other parameters to the API)
+		
+		//move to the add item function//
+		//$("body").on('dblclick', '#list-1 li.tile', showDetails, toggleSize); // add eventhandlers to the tiles
+		$(".button").on("click", this,showDetails);
+		//$(".button").hover(showDetails); /*set filters in the function actual for now */
+
+
+		//step 3. enable animatie en positionering (on scroll, insert and delete)
+		AOS.init({
+			easing: 'ease-in-out-sine'
+		});
+		
+
+		console.log( "Document ready! No errors on load." );
+		});
+		
+		
+		
+		
+	
+	</script>
+	
+
+
+<div id="sfwdta81dba" class="sf-toolbar" style="display: none"></div><script>/*<![CDATA[*/        Sfjs = (function() {        "use strict";        var classListIsSupported = 'classList' in document.documentElement;        if (classListIsSupported) {            var hasClass = function (el, cssClass) { return el.classList.contains(cssClass); };            var removeClass = function(el, cssClass) { el.classList.remove(cssClass); };            var addClass = function(el, cssClass) { el.classList.add(cssClass); };            var toggleClass = function(el, cssClass) { el.classList.toggle(cssClass); };        } else {            var hasClass = function (el, cssClass) { return el.className.match(new RegExp('\\b' + cssClass + '\\b')); };            var removeClass = function(el, cssClass) { el.className = el.className.replace(new RegExp('\\b' + cssClass + '\\b'), ' '); };            var addClass = function(el, cssClass) { if (!hasClass(el, cssClass)) { el.className += " " + cssClass; } };            var toggleClass = function(el, cssClass) { hasClass(el, cssClass) ? removeClass(el, cssClass) : addClass(el, cssClass); };        }        var noop = function() {},            collectionToArray = function (collection) {                var length = collection.length || 0,                    results = new Array(length);                while (length--) {                    results[length] = collection[length];                }                return results;            },            profilerStorageKey = 'sf2/profiler/',            request = function(url, onSuccess, onError, payload, options) {                var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');                options = options || {};                options.maxTries = options.maxTries || 0;                xhr.open(options.method || 'GET', url, true);                xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');                xhr.onreadystatechange = function(state) {                    if (4 !== xhr.readyState) {                        return null;                    }                    if (xhr.status == 404 && options.maxTries > 1) {                        setTimeout(function(){                            options.maxTries--;                            request(url, onSuccess, onError, payload, options);                        }, 1000);                        return null;                    }                    if (200 === xhr.status) {                        (onSuccess || noop)(xhr);                    } else {                        (onError || noop)(xhr);                    }                };                xhr.send(payload || '');            },            getPreference = function(name) {                if (!window.localStorage) {                    return null;                }                return localStorage.getItem(profilerStorageKey + name);            },            setPreference = function(name, value) {                if (!window.localStorage) {                    return null;                }                localStorage.setItem(profilerStorageKey + name, value);            },            requestStack = [],            extractHeaders = function(xhr, stackElement) {                /* Here we avoid to call xhr.getResponseHeader in order to */                /* prevent polluting the console with CORS security errors */                var allHeaders = xhr.getAllResponseHeaders();                var ret;                if (ret = allHeaders.match(/^x-debug-token:\s+(.*)$/im)) {                    stackElement.profile = ret[1];                }                if (ret = allHeaders.match(/^x-debug-token-link:\s+(.*)$/im)) {                    stackElement.profilerUrl = ret[1];                }            },            renderAjaxRequests = function() {                var requestCounter = document.querySelectorAll('.sf-toolbar-ajax-requests');                if (!requestCounter.length) {                    return;                }                var ajaxToolbarPanel = document.querySelector('.sf-toolbar-block-ajax');                var tbodies = document.querySelectorAll('.sf-toolbar-ajax-request-list');                var state = 'ok';                if (tbodies.length) {                    var tbody = tbodies[0];                    var rows = document.createDocumentFragment();                    if (requestStack.length) {                        var nbOfAjaxRequest = tbody.rows.length;                        if (nbOfAjaxRequest >= 100) {                            tbody.deleteRow(nbOfAjaxRequest - 1);                        }                        for (var i = 0; i < requestStack.length; i++) {                            var request = requestStack[i];                            var row = document.createElement('tr');                            rows.insertBefore(row, rows.firstChild);                            var methodCell = document.createElement('td');                            if (request.error) {                                methodCell.className = 'sf-ajax-request-error';                            }                            methodCell.textContent = request.method;                            row.appendChild(methodCell);                            var pathCell = document.createElement('td');                            pathCell.className = 'sf-ajax-request-url';                            if ('GET' === request.method) {                                var pathLink = document.createElement('a');                                pathLink.setAttribute('href', request.url);                                pathLink.textContent = request.url;                                pathCell.appendChild(pathLink);                            } else {                                pathCell.textContent = request.url;                            }                            pathCell.setAttribute('title', request.url);                            row.appendChild(pathCell);                            var durationCell = document.createElement('td');                            durationCell.className = 'sf-ajax-request-duration';                            if (request.duration) {                                durationCell.textContent = request.duration + "ms";                            } else {                                durationCell.textContent = '-';                            }                            row.appendChild(durationCell);                            row.appendChild(document.createTextNode(' '));                            var profilerCell = document.createElement('td');                            if (request.profilerUrl) {                                var profilerLink = document.createElement('a');                                profilerLink.setAttribute('href', request.profilerUrl);                                profilerLink.textContent = request.profile;                                profilerCell.appendChild(profilerLink);                            } else {                                profilerCell.textContent = 'n/a';                            }                            row.appendChild(profilerCell);                            var requestState = 'ok';                            if (request.error) {                                requestState = 'error';                                if (state != "loading" && i > requestStack.length - 4) {                                    state = 'error';                                }                            } else if (request.loading) {                                requestState = 'loading';                                state = 'loading';                            }                            row.className = 'sf-ajax-request sf-ajax-request-' + requestState;                        }                        var infoSpan = document.querySelectorAll(".sf-toolbar-ajax-info")[0];                        var children = collectionToArray(tbody.children);                        for (var i = 0; i < children.length; i++) {                            tbody.removeChild(children[i]);                        }                        tbody.appendChild(rows);                        if (infoSpan) {                            var text = requestStack.length + ' AJAX request' + (requestStack.length > 1 ? 's' : '');                            infoSpan.textContent = text;                        }                        ajaxToolbarPanel.style.display = 'block';                    } else {                        ajaxToolbarPanel.style.display = 'none';                    }                }                requestCounter[0].textContent = requestStack.length;                var className = 'sf-toolbar-ajax-requests sf-toolbar-value';                requestCounter[0].className = className;                if (state == 'ok') {                    Sfjs.removeClass(ajaxToolbarPanel, 'sf-ajax-request-loading');                    Sfjs.removeClass(ajaxToolbarPanel, 'sf-toolbar-status-red');                } else if (state == 'error') {                    Sfjs.addClass(ajaxToolbarPanel, 'sf-toolbar-status-red');                    Sfjs.removeClass(ajaxToolbarPanel, 'sf-ajax-request-loading');                } else {                    Sfjs.addClass(ajaxToolbarPanel, 'sf-ajax-request-loading');                }            };        var addEventListener;        var el = document.createElement('div');        if (!('addEventListener' in el)) {            addEventListener = function (element, eventName, callback) {                element.attachEvent('on' + eventName, callback);            };        } else {            addEventListener = function (element, eventName, callback) {                element.addEventListener(eventName, callback, false);            };        }                    if (window.XMLHttpRequest && XMLHttpRequest.prototype.addEventListener) {                var proxied = XMLHttpRequest.prototype.open;                XMLHttpRequest.prototype.open = function(method, url, async, user, pass) {                    var self = this;                    /* prevent logging AJAX calls to static and inline files, like templates */                    var path = url;                    if (url.substr(0, 1) === '/') {                        if (0 === url.indexOf('')) {                            path = url.substr(0);                        }                    }                    else if (0 === url.indexOf('http\u003A\/\/localhost\u003A8888')) {                        path = url.substr(21);                    }                    if (!path.match(new RegExp("^\/bundles|^\/_wdt"))) {                        var stackElement = {                            loading: true,                            error: false,                            url: url,                            method: method,                            start: new Date()                        };                        requestStack.push(stackElement);                        this.addEventListener('readystatechange', function() {                            if (self.readyState == 4) {                                stackElement.duration = new Date() - stackElement.start;                                stackElement.loading = false;                                stackElement.error = self.status < 200 || self.status >= 400;                                extractHeaders(self, stackElement);                                Sfjs.renderAjaxRequests();                            }                        }, false);                        Sfjs.renderAjaxRequests();                    }                    proxied.apply(this, Array.prototype.slice.call(arguments));                };            }                return {            hasClass: hasClass,            removeClass: removeClass,            addClass: addClass,            toggleClass: toggleClass,            getPreference: getPreference,            setPreference: setPreference,            addEventListener: addEventListener,            request: request,            renderAjaxRequests: renderAjaxRequests,            load: function(selector, url, onSuccess, onError, options) {                var el = document.getElementById(selector);                if (el && el.getAttribute('data-sfurl') !== url) {                    request(                        url,                        function(xhr) {                            el.innerHTML = xhr.responseText;                            el.setAttribute('data-sfurl', url);                            removeClass(el, 'loading');                            (onSuccess || noop)(xhr, el);                        },                        function(xhr) { (onError || noop)(xhr, el); },                        '',                        options                    );                }                return this;            },            toggle: function(selector, elOn, elOff) {                var tmp = elOn.style.display,                    el = document.getElementById(selector);                elOn.style.display = elOff.style.display;                elOff.style.display = tmp;                if (el) {                    el.style.display = 'none' === tmp ? 'none' : 'block';                }                return this;            },            createTabs: function() {                var tabGroups = document.querySelectorAll('.sf-tabs');                /* create the tab navigation for each group of tabs */                for (var i = 0; i < tabGroups.length; i++) {                    var tabs = tabGroups[i].querySelectorAll('.tab');                    var tabNavigation = document.createElement('ul');                    tabNavigation.className = 'tab-navigation';                    for (var j = 0; j < tabs.length; j++) {                        var tabId = 'tab-' + i + '-' + j;                        var tabTitle = tabs[j].querySelector('.tab-title').innerHTML;                        var tabNavigationItem = document.createElement('li');                        tabNavigationItem.setAttribute('data-tab-id', tabId);                        if (j == 0) { Sfjs.addClass(tabNavigationItem, 'active'); }                        if (Sfjs.hasClass(tabs[j], 'disabled')) { Sfjs.addClass(tabNavigationItem, 'disabled'); }                        tabNavigationItem.innerHTML = tabTitle;                        tabNavigation.appendChild(tabNavigationItem);                        var tabContent = tabs[j].querySelector('.tab-content');                        tabContent.parentElement.setAttribute('id', tabId);                    }                    tabGroups[i].insertBefore(tabNavigation, tabGroups[i].firstChild);                }                /* display the active tab and add the 'click' event listeners */                for (i = 0; i < tabGroups.length; i++) {                    tabNavigation = tabGroups[i].querySelectorAll('.tab-navigation li');                    for (j = 0; j < tabNavigation.length; j++) {                        tabId = tabNavigation[j].getAttribute('data-tab-id');                        document.getElementById(tabId).querySelector('.tab-title').className = 'hidden';                        if (Sfjs.hasClass(tabNavigation[j], 'active')) {                            document.getElementById(tabId).className = 'block';                        } else {                            document.getElementById(tabId).className = 'hidden';                        }                        tabNavigation[j].addEventListener('click', function(e) {                            var activeTab = e.target || e.srcElement;                            /* needed because when the tab contains HTML contents, user can click */                            /* on any of those elements instead of their parent '<li>' element */                            while (activeTab.tagName.toLowerCase() !== 'li') {                                activeTab = activeTab.parentNode;                            }                            /* get the full list of tabs through the parent of the active tab element */                            var tabNavigation = activeTab.parentNode.children;                            for (var k = 0; k < tabNavigation.length; k++) {                                var tabId = tabNavigation[k].getAttribute('data-tab-id');                                document.getElementById(tabId).className = 'hidden';                                Sfjs.removeClass(tabNavigation[k], 'active');                            }                            Sfjs.addClass(activeTab, 'active');                            var activeTabId = activeTab.getAttribute('data-tab-id');                            document.getElementById(activeTabId).className = 'block';                        });                    }                }            },            createToggles: function() {                var toggles = document.querySelectorAll('.sf-toggle');                for (var i = 0; i < toggles.length; i++) {                    var elementSelector = toggles[i].getAttribute('data-toggle-selector');                    var element = document.querySelector(elementSelector);                    Sfjs.addClass(element, 'sf-toggle-content');                    if (toggles[i].hasAttribute('data-toggle-initial') && toggles[i].getAttribute('data-toggle-initial') == 'display') {                        Sfjs.addClass(element, 'sf-toggle-visible');                    } else {                        Sfjs.addClass(element, 'sf-toggle-hidden');                    }                    Sfjs.addEventListener(toggles[i], 'click', function(e) {                        e.preventDefault();                        var toggle = e.target || e.srcElement;                        /* needed because when the toggle contains HTML contents, user can click */                        /* on any of those elements instead of their parent '.sf-toggle' element */                        while (!Sfjs.hasClass(toggle, 'sf-toggle')) {                            toggle = toggle.parentNode;                        }                        var element = document.querySelector(toggle.getAttribute('data-toggle-selector'));                        Sfjs.toggleClass(element, 'sf-toggle-hidden');                        Sfjs.toggleClass(element, 'sf-toggle-visible');                        /* the toggle doesn't change its contents when clicking on it */                        if (!toggle.hasAttribute('data-toggle-alt-content')) {                            return;                        }                        if (!toggle.hasAttribute('data-toggle-original-content')) {                            toggle.setAttribute('data-toggle-original-content', toggle.innerHTML);                        }                        var currentContent = toggle.innerHTML;                        var originalContent = toggle.getAttribute('data-toggle-original-content');                        var altContent = toggle.getAttribute('data-toggle-alt-content');                        toggle.innerHTML = currentContent !== altContent ? altContent : originalContent;                    });                }            }        };    })();    Sfjs.addEventListener(window, 'load', function() {        Sfjs.createTabs();        Sfjs.createToggles();    });/*]]>*/</script><script>/*<![CDATA[*/    (function () {                Sfjs.load(            'sfwdta81dba',            '/_profiler/wdt/a81dba',            function(xhr, el) {                el.style.display = -1 !== xhr.responseText.indexOf('sf-toolbarreset') ? 'block' : 'none';                if (el.style.display == 'none') {                    return;                }                if (Sfjs.getPreference('toolbar/displayState') == 'none') {                    document.getElementById('sfToolbarMainContent-a81dba').style.display = 'none';                    document.getElementById('sfToolbarClearer-a81dba').style.display = 'none';                    document.getElementById('sfMiniToolbar-a81dba').style.display = 'block';                } else {                    document.getElementById('sfToolbarMainContent-a81dba').style.display = 'block';                    document.getElementById('sfToolbarClearer-a81dba').style.display = 'block';                    document.getElementById('sfMiniToolbar-a81dba').style.display = 'none';                }                Sfjs.renderAjaxRequests();                /* Handle toolbar-info position */                var toolbarBlocks = document.querySelectorAll('.sf-toolbar-block');                for (var i = 0; i < toolbarBlocks.length; i += 1) {                    toolbarBlocks[i].onmouseover = function () {                        var toolbarInfo = this.querySelectorAll('.sf-toolbar-info')[0];                        var pageWidth = document.body.clientWidth;                        var elementWidth = toolbarInfo.offsetWidth;                        var leftValue = (elementWidth + this.offsetLeft) - pageWidth;                        var rightValue = (elementWidth + (pageWidth - this.offsetLeft)) - pageWidth;                        /* Reset right and left value, useful on window resize */                        toolbarInfo.style.right = '';                        toolbarInfo.style.left = '';                        if (elementWidth > pageWidth) {                            toolbarInfo.style.left = 0;                        }                        else if (leftValue > 0 && rightValue > 0) {                            toolbarInfo.style.right = (rightValue * -1) + 'px';                        } else if (leftValue < 0) {                            toolbarInfo.style.left = 0;                        } else {                            toolbarInfo.style.right = '0px';                        }                    };                }                var dumpInfo = document.querySelector('.sf-toolbar-block-dump .sf-toolbar-info');                if (null !== dumpInfo) {                    Sfjs.addEventListener(dumpInfo, 'sfbeforedumpcollapse', function () {                        dumpInfo.style.minHeight = dumpInfo.getBoundingClientRect().height+'px';                    });                    Sfjs.addEventListener(dumpInfo, 'mouseleave', function () {                        dumpInfo.style.minHeight = '';                    });                }            },            function(xhr) {                if (xhr.status !== 0) {                    var sfwdt = document.getElementById('sfwdta81dba');                    sfwdt.innerHTML = '\                        <div class="sf-toolbarreset">\                            <div class="sf-toolbar-icon"><svg width="26" height="28" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 26 28" enable-background="new 0 0 26 28" xml:space="preserve"><path fill="#FFFFFF" d="M13 0C5.8 0 0 5.8 0 13c0 7.2 5.8 13 13 13c7.2 0 13-5.8 13-13C26 5.8 20.2 0 13 0z M20 7.5 c-0.6 0-1-0.3-1-0.9c0-0.2 0-0.4 0.2-0.6c0.1-0.3 0.2-0.3 0.2-0.4c0-0.3-0.5-0.4-0.7-0.4c-2 0.1-2.5 2.7-2.9 4.8l-0.2 1.1 c1.1 0.2 1.9 0 2.4-0.3c0.6-0.4-0.2-0.8-0.1-1.3C18 9.2 18.4 9 18.7 8.9c0.5 0 0.8 0.5 0.8 1c0 0.8-1.1 2-3.3 1.9 c-0.3 0-0.5 0-0.7-0.1L15 14.1c-0.4 1.7-0.9 4.1-2.6 6.2c-1.5 1.8-3.1 2.1-3.8 2.1c-1.3 0-2.1-0.6-2.2-1.6c0-0.9 0.8-1.4 1.3-1.4 c0.7 0 1.2 0.5 1.2 1.1c0 0.5-0.2 0.6-0.4 0.7c-0.1 0.1-0.3 0.2-0.3 0.4c0 0.1 0.1 0.3 0.4 0.3c0.5 0 0.9-0.3 1.2-0.5 c1.3-1 1.7-2.9 2.4-6.2l0.1-0.8c0.2-1.1 0.5-2.3 0.8-3.5c-0.9-0.7-1.4-1.5-2.6-1.8c-0.8-0.2-1.3 0-1.7 0.4C8.4 10 8.6 10.7 9 11.1 l0.7 0.7c0.8 0.9 1.3 1.7 1.1 2.7c-0.3 1.6-2.1 2.8-4.3 2.1c-1.9-0.6-2.2-1.9-2-2.7c0.2-0.6 0.7-0.8 1.2-0.6 c0.5 0.2 0.7 0.8 0.6 1.3c0 0.1 0 0.1-0.1 0.3C6 15 5.9 15.2 5.9 15.3c-0.1 0.4 0.4 0.7 0.8 0.8c0.8 0.3 1.7-0.2 1.9-0.9 c0.2-0.6-0.2-1.1-0.4-1.2l-0.8-0.9c-0.4-0.4-1.2-1.5-0.8-2.8c0.2-0.5 0.5-1 0.9-1.4c1-0.7 2-0.8 3-0.6c1.3 0.4 1.9 1.2 2.8 1.9 c0.5-1.3 1.1-2.6 2-3.8c0.9-1 2-1.7 3.3-1.8C20 4.8 21 5.4 21 6.3C21 6.7 20.8 7.5 20 7.5z"/></svg></div>\                            An error occurred while loading the web debug toolbar. <a href="/_profiler/a81dba">Open the web profiler.</a>\                        </div>\                    ';                    sfwdt.setAttribute('class', 'sf-toolbar sf-error-toolbar');                }            },            {'maxTries': 5}        );    })();/*]]>*/</script>
+</body>
+</html>

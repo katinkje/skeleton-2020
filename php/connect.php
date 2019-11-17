@@ -20,7 +20,7 @@ $password = "root";
 //$servername = "database.lcn.com";
 //$db = "boomtreecreative_com_faciliteiten";
 //$username = "LCN257032_root";
-//$password = "7A5T#r_$C!Z$";
+//$password = "H@nzedHealth1";
 	
 	
 

@@ -30,7 +30,7 @@
 
 
 
-	//echo($sql);
+	echo($sql);
 
 
 	$stmt = $conn->prepare($sql); 

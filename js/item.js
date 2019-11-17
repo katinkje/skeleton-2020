@@ -31,13 +31,13 @@ function createItem(itemdata) {
 	var item =	document.createElement('li');
 		item.setAttribute('id', itemdata.item_id); //pass straight from recordset
 		item.classList.add('tile');
-		//item.classList.add(jsonrecord.contenttype);
+		item.classList.add(itemdata.contenttype);
 		item.setAttribute('data-aos', scrollanimation);
 		item.setAttribute('data-aos-duration', 500);
 	
 		item.addEventListener('dblclick', toggleSize);
 		item.addEventListener('click', showDetails);
-		item.addEventListener('hover', showDetails);
+		//item.addEventListener('hover', showDetails);
 		//item.addEventListener('dblclick', getrelatedtypes(itemdata.item_id)); //double click an item tile to insert or reveal associated content types
 
 
@@ -61,14 +61,14 @@ function createItem(itemdata) {
 		title.classList.add('item-title');
 		title.innerHTML = "<h2>" + itemdata.item_title + "</h2>";
 		
-	
+		//front.appendChild( title );
 		item.appendChild( title );
 			
 	var desc = document.createElement('div');
 		desc.classList.add('item-desc');
 		desc.innerHTML = itemdata.item_desc;
 		
-	
+		//front.appendChild( desc );
 		item.appendChild( desc );
 	
 

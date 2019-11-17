@@ -51,19 +51,19 @@ function showDetails (e) {
 var el = e.currentTarget; //element with the handler attached
 var show = false;
 	
-	if (el.classList.contains("featured")) {
-		show=true;
-	}
-	if (el.classList.contains("button") && el.classList.contains("xselected")) {
-		show=true;
-	}
+	//if (el.classList.contains("featured")) {
+	//	show=true;
+	//}
+	//if (el.classList.contains("button") && el.classList.contains("xselected")) {
+	//	show=true;
+	//}
 	
 	//if ((el.classList.contains("featured")) || (( el.classList.contains("button")) && (el.classList.contains("xselected"))))  {
 
-	if(show) {
+	//if(show) {
 		$("#list-1 > li.item-desc").html($(el).find(".item-desc").html());
 		$("#list-1 > li.item-title").html($(el).find(".item-title").html());
-	}
+	//}
 	//}
 }
 
