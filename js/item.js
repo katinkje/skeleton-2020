@@ -26,7 +26,7 @@ var buttonlist =	document.createElement('ul');
 	
 	while (list.hasChildNodes()) { 
 	//if(list.firstChild.classList) {
-		if ((list.firstChild.classList) && ((list.firstChild.classList.contains("button")) ||(list.firstChild.classList.contains("xselected")))) {
+		if ((list.firstChild.classList) && ((list.firstChild.classList.contains("button")) ||(list.firstChild.classList.contains("featured")))) {
 			//alert(list.firstChild.classList);
 			buttonlist.appendChild(list.firstChild);
 		} else {

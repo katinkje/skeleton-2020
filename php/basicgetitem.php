@@ -12,8 +12,7 @@
 	$param2 =  (isset($_GET['limit']) ? $_GET['limit'] : "0,5"); //"LIMIT 0,24"; //paging support
 	$param3 =  (isset($_GET['type']) ? $_GET['type'] : "inspirations"); // taxonomie parameter
 	$sql = ""; //FUNKY ERROR
-	$in = "";
-	$row = "";
+
 
 
 	//echo "Connected successfully"; 

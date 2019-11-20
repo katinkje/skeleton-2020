@@ -8,7 +8,7 @@
 /*real button sets*/
 
 
-#inspirations, #hardware, #pages, #field, #expertise, #location, #education, #organisation, #hanze, #type-filters button:link, #type-filters button:visited {
+#inspirations, #hardware, #pages, #field, #expertise, #location, #course, #organisation, #hanze, #type-filters button:link, #type-filters button:visited {
 	background-color: #444;
 	
 	height: 50px;
@@ -56,7 +56,7 @@
 	border: 1px solid #5C9EAD;
 }
 
-#education.active, #education:hover, .education {
+#course.active, #course:hover, .course {
 	background: #6a785c; /*mossy green**/
 	border: 1px solid #6a785c;
 	}

@@ -21,5 +21,4 @@
 		"/demo/haal-dsc-4419.jpg",
 		"/demo/haal-dsc-4551.jpg",
 		"/demo/haal-dsc-4590.jpg",
-		"/demo/humacnorm.jpeg",
 		"/demo/haal-dsc-4609.jpg");

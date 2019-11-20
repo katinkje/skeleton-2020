@@ -3,9 +3,9 @@
 
 
 function resetScreen (e) {
-var el = e.currentTarget; //element with the handler attached
-	
-alert("reset screen (home)");
+//var el = e.currentTarget; //element with the handler attached
+location.reload(true)	
+//alert("reset screen (home)");
 }
 
 function refreshScreen (e) {

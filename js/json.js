@@ -1,7 +1,7 @@
 // JavaScript Document
 
 function getData (surl, callback) {
-	
+//alert(surl);	
 		$.ajax({
 			url: surl,
 			method: 'GET',
