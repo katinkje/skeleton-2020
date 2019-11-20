@@ -20,6 +20,26 @@ if (list) {
 return false;
 }
 
+function deleteItems() {
+var list = document.getElementById("list-1");
+var buttonlist =	document.createElement('ul');
+	
+	while (list.hasChildNodes()) { 
+	//if(list.firstChild.classList) {
+		if ((list.firstChild.classList) && ((list.firstChild.classList.contains("button")) ||(list.firstChild.classList.contains("xselected")))) {
+			//alert(list.firstChild.classList);
+			buttonlist.appendChild(list.firstChild);
+		} else {
+			list.removeChild(list.firstChild);
+		}
+	//}
+	}
+	
+	while (buttonlist.hasChildNodes()) { 
+		list.appendChild(buttonlist.firstChild);
+	}
+	
+}
 
 function createItem(itemdata) {
 
@@ -74,49 +94,6 @@ function createItem(itemdata) {
 return item;
 }
 
-
-
-
-//function addItems (jsonrecordset) {
-//alert("in add item");
-	
-	//var elBefore= document.getElementById(insertbeforeitem); //global var declared in settings
-	//var list = elBefore.parentElement;
-	//var nextid =0;
-	//var s = "";
-	
-	
-		//for(var i=0; i < jsonrecordset.length;i++) {
-			
-		//	var index =Math.floor(Math.random() * itemAnimations.length);
-		//	var animation = itemAnimations[index];
-			
-			//add a check for image or video and supply a default
-			
-		//	var index =Math.floor(Math.random() * itemImages.length);
-		//	var backgroundimage = "background-image: url('" + itemImages[index] + "');";
-			
-			//END image / video check
-		//	if (nextid != jsonrecordset[i].item_id) {
-		//		var newItem = createItem(jsonrecordset[i], animation, backgroundimage);
-		//		list.insertBefore(newItem, elBefore);
-		//		s = (jsonrecordset[i].item_tocontenttype) + "," + (jsonrecordset[i].total_of_type);
-		//		
-		//		}
-		//	 else {
-		//		s = s + "#" + (jsonrecordset[i].item_tocontenttype) + "," + (jsonrecordset[i].total_of_type);
-				
-		//	}
-		//	newItem ? newItem.setAttribute('to_contenttype', s) : newItem;
-		//	nextid = jsonrecordset[i].item_id;
-			
-		
-			//newItem.setAttribute('to_contenttype', s);
-				
-		//}
-
-	//return false;
-	//}
 
 
 function getImage() {

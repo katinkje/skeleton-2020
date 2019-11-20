@@ -11,7 +11,10 @@ alert("reset screen (home)");
 function refreshScreen (e) {
 var el = e.currentTarget; //element with the handler attached
 
-		//repeat. get data
+		//delete obsolete items
+		deleteItems();
+	
+		//repeat. get new data
 		
 		var url = basepath + "php/basicgetitem.php?type=" + activetype + "&limit=0," + itemsperpage; //Set from_id to 0 to retrieve all; todo: enable paging
 		//alert(url);
