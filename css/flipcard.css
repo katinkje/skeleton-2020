@@ -13,7 +13,6 @@
 	transition: all 0.8s ease;
 	background: transparent;
 
-
 	}
 
 /* THE PSEUDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
@@ -39,7 +38,7 @@ li:not(.featured).xselected > .thecard  { /* flip selected tile */
 	background-position:center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	
+
 		
 	border-radius: 5px;
 	overflow: hidden;

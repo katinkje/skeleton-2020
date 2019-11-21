@@ -21,6 +21,33 @@ return false;
 }
 
 
+function addRelatedItems (jsonrecordset) {
+//var list = document.getElementById("list-1"); //oops, hardcoded value. refactor.
+
+//if () {	
+	deleteItemsFromList("list-1");
+	for(var i=0; i < jsonrecordset.length;i++) {
+		
+		
+		var url = basepath + "php/basicgetitem.php?id=" + jsonrecordset[i].item_id + "&type=" + jsonrecordset[i].content_type
+		
+		getData (url, addItems);
+	//alert(i);
+		//var newitem = createItem(jsonrecordset[i]);
+		//list.append(newitem); // append / prepend / insertBefore / insertAfter
+		//alert("item: " + newitem.id + " created");	
+		//}
+	
+	//alert(list.lastChild.id);
+	//list.lastChild.classList.add('featured'); //sort datepunblished descending zodat het meeste recente item, het featured item is.
+	//list.lastChild.classList.add('xselected'); 
+	
+	}
+return false;
+}
+
+
+
 
 
 function deleteItemsFromList(list) {
@@ -48,19 +75,20 @@ function createItem(itemdata) {
 
 	var scrollanimation = getAnimation(); //haal een random animatie style op voor scroll-effect, toevoegen en verwijderen.
 	var fallback_image = getImage(); //haal een random demo image op.
-
+	var getrelatedapi = "";
 
 	
 	var item =	document.createElement('li');
 		item.setAttribute('id', itemdata.item_id); //pass straight from recordset
 		item.classList.add('tile');
 		item.classList.add(itemdata.content_type);
+		item.setAttribute('content-type', itemdata.content_type);
 		item.setAttribute('data-aos', scrollanimation);
 		item.setAttribute('data-aos-duration', 500);	
 		item.addEventListener('dblclick', toggleSize);
+
 		item.addEventListener('click', showDetails);
-		//item.addEventListener('hover', showDetails);
-		//item.addEventListener('dblclick', getrelatedtypes(itemdata.item_id)); //double click an item tile to insert or reveal associated content types
+	
 
 
 	var flipcard = document.createElement('div');
@@ -74,7 +102,14 @@ function createItem(itemdata) {
 	var back = document.createElement('div');
 		back.classList.add('theback');
 		//back.setAttribute('style', validateimage(itemdata.item_image, fallback_image));
-		
+	
+	
+	var code = document.createElement('div');
+		code.classList.add('item-code');
+		code.innerHTML = "<h2>#" + generatePassword() + "</h2>";
+	
+		back.appendChild( code);
+	
 		flipcard.appendChild(front)
 		flipcard.appendChild(back)
 	
@@ -85,6 +120,7 @@ function createItem(itemdata) {
 		title.innerHTML = "<h2>" + itemdata.item_title + "</h2>";
 		
 		//front.appendChild( title );
+	
 		item.appendChild( title );
 			
 	var desc = document.createElement('div');

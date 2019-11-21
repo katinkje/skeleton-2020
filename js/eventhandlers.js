@@ -11,21 +11,12 @@ location.reload(true)
 
 
 function refreshScreen (e) {
-var el = e.currentTarget; //element with the handler attached
+//var el = e.currentTarget; //element with the handler attached
 
 		//refresh
 		deleteItemsFromList("list-1");
 		getItems();
-
-return false;
-}
-
-function  getItems () {
-			//repeat. get new data
-		
-		var url = basepath + "php/basicgetitem.php?type=" + paging.activetype + "&limit=" + paging[paging.activetype] + "," + paging.itemsperpage; //Set from_id to 0 to retrieve all; todo: enable paging
-		//alert(url);
-		getData (url, addItems); //getData (api/url, callback) (todo: add paging or other parameters to the API)
+//alert("refresh screen");
 return false;
 }
 
@@ -118,6 +109,7 @@ var el = e.currentTarget; //element with the handler attached
 			}
 		}
 		el.classList.toggle("featured");
+		getRelations(el);
 	}
 //alert(el.classList);
 }

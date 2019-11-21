@@ -17,21 +17,24 @@ function getData (surl, callback) {
 		}
 
 
-//overige data gerelateerde functies//////////////////////////////
+function  getItems () {
+var url = basepath + "php/basicgetitem.php?type=" + paging.activetype + "&limit=" + paging[paging.activetype] + "," + paging.itemsperpage;
+
+	getData (url, addItems);
+
+return false;
+}
 
 
+function  getRelations (el) {
+	
+var itemid = el.id;
+var contenttype = el.getAttribute('content-type');	
 
+	
+var url = basepath + "php/basicgetrelated.php?id=" + itemid + "&type=" + contenttype; 
 
+	getData (url, addRelatedItems); //getData (api/url, callback) (todo: add paging or other parameters to the API)
 
-
-	function fetchNextItems (jsonrecordset) {
-		
-		for(var i=0; i < jsonrecordset.length;i++) {
-			//alert(jsonrecordset[i].to_id + " " + jsonrecordset[i].to_contenttype);
-			var surl = "/php/itemsbytype.php?from_id=" +  jsonrecordset[i].to_id + "&to_contenttype=" + jsonrecordset[i].to_contenttype;
-			getData (surl, addItems); //getData (api/url, callback) (todo: add paging or other parameters to the API)
-		};
-		
-
-	return false;
-	}
+return false;
+}

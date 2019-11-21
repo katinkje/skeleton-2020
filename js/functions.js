@@ -5,7 +5,6 @@
 
 function toggleType(bycoll, bylabel,bycolorcode) {
 var containerElement = document.getElementById(bycoll); // Get the container element
-var typeDesc = document.getElementById(bycoll  + '-desc'); // Get the element to display a litte extra help
 var btns = containerElement.getElementsByTagName("button");	// Get all buttons inside the container
 	
 	for (var i = 0; i < btns.length; i++) {
@@ -14,7 +13,6 @@ var btns = containerElement.getElementsByTagName("button");	// Get all buttons i
 	document.getElementById(bylabel).classList.add("active");
 	document.documentElement.style.setProperty('--type-color', bycolorcode);
 	document.documentElement.style.setProperty('--type-label', bylabel);
-	typeDesc.innerHTML = "<h2>#" + bylabel + "</h2>";
 	paging.activetype = bylabel; //set global variable
 return false;
 }
@@ -30,4 +28,15 @@ function mtoggleClass(el, classname){
 	} else {
 		el.classList.add(classname);
 	}
+}
+
+// code generator //
+function generatePassword() {
+    var length = 8,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
 }

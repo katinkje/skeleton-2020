@@ -17,8 +17,8 @@
 h2, h3 {
 	text-transform: inherit;
 	font-size: inherit;
-	/*border: 1px solid red;*/
-	width: 100%;
+	text-align: center;
+	background: inherit;
 	}
 
 
