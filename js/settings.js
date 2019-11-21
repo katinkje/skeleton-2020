@@ -1,15 +1,9 @@
 // JavaScript Document
 
-//globals //
+// globals, todo: convert all code to objects//
 	
 
 	var basepath = "/theme/skeleton-2020/";
-	var additemstoList ="aos-demo";
-	var insertbeforeitem ="insert-before";
-	var deleteafteritem="delete-after";
-	var currentpage = 0;
-	var itemsperpage = 12;
-	var activetype = "inspirations";
 
 	
 
@@ -22,3 +16,21 @@
 		"/demo/haal-dsc-4551.jpg",
 		"/demo/haal-dsc-4590.jpg",
 		"/demo/haal-dsc-4609.jpg");
+
+
+	
+//we keep track of page number last shown of a particular type of tile //
+	var paging = {
+
+			inspirations: 0, 
+			hardware: 0, 
+			pages: 0,  
+			field: 0, 
+			expertise: 0,  
+			location: 0,  
+			course: 0,  
+			organisation: 0, 
+			hanze:0,
+			activetype : "inspirations",
+			itemsperpage: 6
+			};

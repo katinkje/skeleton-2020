@@ -8,38 +8,62 @@ location.reload(true)
 //alert("reset screen (home)");
 }
 
+
+
 function refreshScreen (e) {
 var el = e.currentTarget; //element with the handler attached
 
-		//delete obsolete items
-		deleteItems();
-	
-		//repeat. get new data
+		//refresh
+		deleteItemsFromList("list-1");
+		getItems();
+
+return false;
+}
+
+function  getItems () {
+			//repeat. get new data
 		
-		var url = basepath + "php/basicgetitem.php?type=" + activetype + "&limit=0," + itemsperpage; //Set from_id to 0 to retrieve all; todo: enable paging
+		var url = basepath + "php/basicgetitem.php?type=" + paging.activetype + "&limit=" + paging[paging.activetype] + "," + paging.itemsperpage; //Set from_id to 0 to retrieve all; todo: enable paging
 		//alert(url);
 		getData (url, addItems); //getData (api/url, callback) (todo: add paging or other parameters to the API)
-		
-//alert("refresh screen: " + activetype);
+return false;
 }
 
 
 
 function previousItems (e) {
-var el = e.currentTarget; //element with the handler attached
+//var el = e.currentTarget; //element with the handler attached
+
+	if (paging[paging.activetype] > 0) {
+		paging[paging.activetype] = paging[paging.activetype] -1;
+	} else {
+		paging[paging.activetype] = 0;
+	}
 	
-alert("previous items");
+//refresh
+deleteItemsFromList("list-1");
+getItems();
+//alert("previous items: " + paging[paging.activetype] );
+return false;
 }
 
 
 
 
 function nextItems (e) {
-var el = e.currentTarget; //element with the handler attached
-	
-alert("next items");
-}
+//var el = e.currentTarget; //element with the handler attached
 
+	//if (paging[paging.activetype] > 0) {
+		paging[paging.activetype] = paging[paging.activetype] + 1;
+	//} else {
+	//	paging[paging.activetype] = 0;
+	//}
+	//refresh
+deleteItemsFromList("list-1");
+getItems();
+//alert("next items: " + paging[paging.activetype] );
+return false;
+}
 
 
 function deleteItems (e) {

@@ -20,8 +20,11 @@ if (list) {
 return false;
 }
 
-function deleteItems() {
-var list = document.getElementById("list-1");
+
+
+
+function deleteItemsFromList(list) {
+var list = document.getElementById(list);
 var buttonlist =	document.createElement('ul');
 	
 	while (list.hasChildNodes()) { 
