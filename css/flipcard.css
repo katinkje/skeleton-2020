@@ -12,8 +12,8 @@
 	transform-style: preserve-3d;
 	transition: all 0.8s ease;
 	background: transparent;
-	
-	border:none;
+
+
 	}
 
 /* THE PSEUDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
@@ -21,9 +21,11 @@ li:not(.xselected) > .thecard:hover { /* disable hover on a selected tile */
 	transform: rotateY(180deg);
 	}
 
-li.xselected > .thecard { /* flip selected tile */
+
+li:not(.featured).xselected > .thecard  { /* flip selected tile */
 	transform: rotateY(180deg);
 	}
+
 
 /* FRONT & BACK SHARED */
 .thefront, .theback {
@@ -37,17 +39,20 @@ li.xselected > .thecard { /* flip selected tile */
 	background-position:center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	
+		
+	border-radius: 5px;
+	overflow: hidden;
 
 	}
 
 /* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
 .tile .thefront {
 	/* background: yellow; */
-	background: #444;
-
 	}
 
-.tile:not(.featured) .theback {
+
+.tile:not(.featured) .thefront {
 	filter: grayscale(100%);
 }
 
@@ -56,4 +61,10 @@ li.xselected > .thecard { /* flip selected tile */
 	transform: rotateY(180deg);
 	/* background: green; */
 	}
+
+.tile .theback {
+	background: #444;
+	}
+
+
 

@@ -40,9 +40,10 @@ function previousItems (e) {
 		paging[paging.activetype] = 0;
 	}
 	
-//refresh
-deleteItemsFromList("list-1");
-getItems();
+	//refresh
+	deleteItemsFromList("list-1");
+	getItems();
+	
 //alert("previous items: " + paging[paging.activetype] );
 return false;
 }
@@ -67,9 +68,11 @@ return false;
 
 
 function deleteItems (e) {
-var el = e.currentTarget; //element with the handler attached
-	
-alert("delete items");
+//var el = e.currentTarget; //element with the handler attached
+
+deleteItemsFromList("list-2");	
+//alert("delete items");
+return false;
 }
 
 function saveItems (e) {

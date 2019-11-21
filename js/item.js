@@ -69,10 +69,11 @@ function createItem(itemdata) {
 	
 	var front = document.createElement('div');
 		front.classList.add('thefront');
+		front.setAttribute('style', validateimage(itemdata.item_image, fallback_image));
 	
 	var back = document.createElement('div');
 		back.classList.add('theback');
-		back.setAttribute('style', validateimage(itemdata.item_image, fallback_image));
+		//back.setAttribute('style', validateimage(itemdata.item_image, fallback_image));
 		
 		flipcard.appendChild(front)
 		flipcard.appendChild(back)
@@ -133,51 +134,6 @@ function validateimage(itemimage, fallbackimage) {
 return fallbackimage;
 }
 
-
-
-function createType(id, type, numberoftype, scrollanimation, bgimage) {
-	
-	var item =	document.createElement('li');
-	
-	
-	
-	item.setAttribute('from_id', id); //pass straight from recordset
-	item.classList.add('grid-item');
-	item.classList.add('type');
-	item.classList.add(type);
-	item.setAttribute('data-aos', scrollanimation);
-	item.setAttribute('data-aos-duration', 500);
-	
-	item.addEventListener('dblclick', getrelateditems(id,type)); //double click an item tile to insert or reveal associated content types
-	
-	//item.setAttribute('to_contenttype', "");
-	
-	
-	
-	var flipcard = document.createElement('div');
-		flipcard.classList.add('flip-card-container');
-		flipcard = item.appendChild(flipcard); //add the flipcard container
-	
-	
-	//var front = document.createElement('div');
-		//front.classList.add('flip-card-front');
-		//front.classList.add(type);
-		//front.setAttribute('style', bgimage);
-		//flipcard.appendChild(front)
-	
-	var back = document.createElement('div');
-		back.classList.add('flip-card-back');
-		back.setAttribute('style', bgimage);
-	
-		flipcard.appendChild(back)
-		
-		var text = document.createTextNode(numberoftype);
-		back.appendChild( text );
-	
-	
-
-	return item;
-	}
 
 
 

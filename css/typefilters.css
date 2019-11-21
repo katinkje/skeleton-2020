@@ -2,6 +2,24 @@
 /* CSS Document */
 
 
+:root {
+/*--type-color: #ce2455;*/
+--type-color: #F4D35E;
+--type-image: url('//theme/skeleton-2020/images/pages.svg');
+--type-label: 'pages';
+}
+
+/* inspirations #ce2455; /*pink*/
+/* hardware background: #FAF0CA; /*blond*/
+/* pages background: #F4D35E; /*still de grain yellow */
+/* field background: #70142c; /*purple*/
+/* expertise.background: #0D3B66; /*dark midnight blue */
+/* location background: #5C9EAD; /*cadet blue*/
+/* course background: #6a785c; /*mossy green**/
+/* organisation background: #000005;
+/* hanze background: #ff9933; /* to do: check / get the official color*/
+/* offwhite  background: #f6efe5; */
+
 
 
 
@@ -25,48 +43,48 @@
 
 /*pseudo class order: :link — :visited — :hover — :active */
 
-#inspirations.active, #inspirations:hover, .inspirations { 
+#inspirations.active, #inspirations:hover, .inspirations:not(.featured).xselected { 
 	background: #ce2455; /*pink*/
 	border: 1px solid #ce2455;
 	}
 	
 
-#hardware.active, #hardware:hover, .hardware { 
+#hardware.active, #hardware:hover, .hardware:not(.featured).xselected { 
 	background: #FAF0CA; /*blond*/
 	border: 1px solid #FAF0CA;
 	}
 
-#pages.active, #pages:hover, .pages {
+#pages.active, #pages:hover, .pages:not(.featured).xselected {
 	background: #F4D35E; /*still de grain yellow */
-	border: 1px solid #F4D35E;
+	border: 1px solid #F4D35E; 
 	}
 	
-#field.active, #field:hover, .field {
+#field.active, #field:hover, .field:not(.featured).xselected {
 	background: #70142c; /*purple*/
 	border: 1px solid #70142c;
 	}
 
-#expertise.active, #expertise:hover, .expertise {
+#expertise.active, #expertise:hover, .expertise:not(.featured).xselected {
 	background: #0D3B66; /*dark midnight blue */
 	border: 1px solid #0D3B66;
 	}
 
-#location.active,#location:hover, .location {
+#location.active,#location:hover, .location:not(.featured).xselected {
 	background: #5C9EAD; /*cadet blue*/
 	border: 1px solid #5C9EAD;
 }
 
-#course.active, #course:hover, .course {
+#course.active, #course:hover, .course:not(.featured).xselected {
 	background: #6a785c; /*mossy green**/
 	border: 1px solid #6a785c;
 	}
 
-#organisation.active, #organisation:hover, .organisation {
+#organisation.active, #organisation:hover, .organisation.xselected {
 	background: #000005;
 	border: 1px solid  #000005;
 	}
 
-#hanze.active, #hanze:visited,#hanze:hover, .hanze {
+#hanze.active, #hanze:visited,#hanze:hover, .hanze:not(.featured).xselected {
 	background: #ff9933; /* to do: check / get the official color*/
 	border: 1px solid  #ff9933;
 	}

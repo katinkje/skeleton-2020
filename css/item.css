@@ -46,8 +46,8 @@
 
 
 	li.tile.featured {
-		border-color: 3px solid;
-		/*var(--type-color);*/
+		/* border-color: 3px solid; */
+		/* var(--type-color);*/
 		
 		/* grid-area: 2 / 3 / 4 / 4; 	/* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
 
