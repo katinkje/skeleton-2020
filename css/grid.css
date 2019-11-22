@@ -68,7 +68,7 @@ h2, h3 {
 	}
 
 .grid > li.xselected {
-	/* border:3px solid var(--type-color); */
+	border-color: #ADADAD;
 	}
 
 
