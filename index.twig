@@ -38,11 +38,18 @@
 					<div class="thefront" style="background-image: url('/theme/skeleton-2020/images/speech-search.svg');background-size: 85%;"></div>
 					<div class="flex-me theback">
 				
-					<!--input -->
+					<!--Google search-->
 					<form autocomplete="off" id="fcsearch" method="get" action="https://www.google.com/search">
 					<input type="hidden" name="q" id="transcript" placeholder="Speak..." />
-					</form><!--END input -->
-					</form><!--END input -->
+					</form><!--END Google search -->
+					
+					<!--BOLT search
+					<form method="get" action="/search" id="searchform-inline" enctype="text/plain">
+					<input type="search" value="" placeholder="Search …" name="search" >
+					<button type="submit">Search</button>
+					</form> END BOLT search-->
+
+				
 						
 					<button id="mic" class="off" onclick="startButton();"></button>
 					<!--save the on / off status in the classlist of this button-->

@@ -37,9 +37,12 @@ if (!('webkitSpeechRecognition' in window)) {
 		document.getElementById("mic").classList.remove("on");
 		document.getElementById("mic").classList.add("off");
 		recognition.stop();
-		//document.getElementById('fcsearch').submit();
+		
 		document.getElementById("quick-search").classList.remove("xselected");
-		alert("submit search for keyword: " + s);
+		
+		document.getElementById('fcsearch').submit(); /* Google search */
+		
+		//alert("submit search for keyword: " + s);
 		};
 	
 	
