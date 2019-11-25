@@ -138,8 +138,8 @@ return item;
 
 function getImage() {
 	var index =Math.floor(Math.random() * itemImages.length);
-	var bgImage = "background-image: url('" + basepath + itemImages[index] + "');";
-
+	//var bgImage = "background-image: url('" + basepath + itemImages[index] + "');";
+	var bgImage = itemImages[index];
 return bgImage;
 }
 
@@ -153,21 +153,24 @@ return animation;
 
 
 function validateimage(itemimage, fallbackimage) {
+var bgimage = fallbackimage;
+
+
 	
-//	if (!itemimage) {
-		//var bgimage = fallbackimage;
-//	} else {
-//		var s = JSON.parse(itemimage).file;
-//		var pos = s.lastIndexOf(".");
-//			s = s.substring(0, pos);
-//			s = s + ".webp";
-//			//alert(s);
-//		var bgimage = "background-image: url('/images/" + s + "');";
-		//alert(bgimage);
-//	}
-		
-//return bgimage;
-return fallbackimage;
+	if (itemimage) {
+		var s = JSON.parse(itemimage).file;
+		//var pos = s.lastIndexOf(".");
+		//s = s.substring(0, pos);
+		//s = s + ".webp";
+		//alert(s);
+		//var bgimage = "background-image: url('/images/" + s + "');";
+
+		bgimage = s;	
+	}
+	
+bgimage = "background-image: url('" + basepath + 'images/pictures/' + bgimage + "');";
+//alert(bgimage);
+return bgimage;
 }
 
 
