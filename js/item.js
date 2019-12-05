@@ -157,18 +157,14 @@ var bgimage = fallbackimage;
 
 
 	
-	if (itemimage) {
-		var s = JSON.parse(itemimage).file;
-		//var pos = s.lastIndexOf(".");
-		//s = s.substring(0, pos);
-		//s = s + ".webp";
-		//alert(s);
-		//var bgimage = "background-image: url('/images/" + s + "');";
-
-		bgimage = s;	
-	}
+	//if (itemimage) {
+	//var s = JSON.parse(itemimage).file;
+	//
+	//alert(s);
+	// bgimage = s;
+	//}
 	
-bgimage = "background-image: url('" + basepath + 'images/pictures/' + bgimage + "');";
+bgimage = "background-image: url('" + basepath + 'images/' + bgimage + "');";
 //alert(bgimage);
 return bgimage;
 }
